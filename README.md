@@ -1,5 +1,7 @@
-# StepView
+
+# StepView [![](https://jitpack.io/v/baoyachi/StepView.svg)](https://jitpack.io/#baoyachi/StepView)
 Step by step，流程指示器。
+
 
 <img src="art/step-icon.png"></img>
 
@@ -15,12 +17,12 @@ Add it in your root build.gradle at the end of repositories:
 			maven { url "https://jitpack.io" }
 		}
 Step 2. Add the dependency
-	
+
 	dependencies {
 	        compile 'com.github.baoyachi:StepView:v1.0'
 	}		
-		
-		
+
+
 
 
 in xml
@@ -433,10 +435,10 @@ DashPathEffect:DashPathEffect是PathEffect类的一个子类,可以使paint画�
         }
 ```
 这里细心的小伙伴可能有注意到，为什么在画线的的时候，为什么canvas.drawRect的时候，左右会分别-10，+10
-		
+
 		canvas.drawRect(preComplectedXPosition + mCircleRadius - 10, mLeftY, afterComplectedXPosition - mCircleRadius + 10, mRightY, mCompletedPaint);
 那是因为当画矩形时，线和圆之间的连接像是有缝隙，于是我就让矩形在往左边多画了10单位，在右边多画了10单位，这样他们看起来像是无缝连接一样。哈哈，但是这间距不能太大。		
-	
+
 
 * 画圆
 这里判断小于正在进行中的为则表示已经完成。并且刚好等于正在进行中的且不等于一表示正在进行中，大于则表示该步骤为完成,分别绘制图标。
@@ -1068,5 +1070,3 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
 
 ##End
 喜欢这个控件的小伙伴可以点击star哦！
-
-
