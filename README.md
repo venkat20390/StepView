@@ -210,27 +210,27 @@ DashPathEffect:DashPathEffect是PathEffect类的一个子类,可以使paint画�
 1.假设当前共有一步：	接单。
 意味当前有一个圆，没有连线，得出paddingLeft
 
-    float paddingLeft= getWidth() - 1*(mCircleRadius*2)-0*mLinePadding；
+    float paddingLeft= (getWidth() - 1*(mCircleRadius*2)-0*mLinePadding)/2；
 
 2.假设当前共有二步：接单->打包
 意味当前有两个圆，之前有一条连线，得出paddingLeft
 
-    float paddingLeft= getWidth() - 2*(mCircleRadius*2)-1*mLinePadding；
+    float paddingLeft= (getWidth() - 2*(mCircleRadius*2)-1*mLinePadding)/2；
 3.假设当前共有三步：接单->打包->出发
 意味当前有三个圆，之前有二条连线，得出paddingLeft
 
-    float paddingLeft= getWidth() - 3*(mCircleRadius*2)-2*mLinePadding；
+    float paddingLeft= (getWidth() - 3*(mCircleRadius*2)-2*mLinePadding)/2；
 
 4.假设当前共有四步：接单->打包->出发->送单
 意味当前有四个圆，之前有三条连线，得出paddingLeft
 
-    float paddingLeft= getWidth() - 4*(mCircleRadius*2)-3*mLinePadding；
+    float paddingLeft= (getWidth() - 4*(mCircleRadius*2)-3*mLinePadding)/2；
 
 5.假设当前共有五步：接单->打包->出发->送单->完成
 
 意味着我当前有五个圆，五个圆中间有四条线相连接，这样我们可以得到五个圆的直径+四条线的长度，这样我们就可以得到最左边的paddingLeft的值：
 
-    float paddingLeft= getWidth() - 5*(mCircleRadius*2)-4*mLinePadding；
+    float paddingLeft= (getWidth() - 5*(mCircleRadius*2)-4*mLinePadding)/2；
 综上所述：
   得出一个计算公式：其中mStepNum：当前控件所展示的步数。
 
