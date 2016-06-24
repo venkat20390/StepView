@@ -7,14 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.baoyachi.stepview.StepView;
+import com.baoyachi.stepview.HorizontalStepView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * 日期：16/6/22 16:01
- * <p>
+ * <p/>
  * 描述：
  */
 public class MainActivity extends AppCompatActivity
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
 
     private void showSetpView0()
     {
-        StepView setpview0 = (StepView) findViewById(R.id.step_view0);
+        HorizontalStepView setpview0 = (HorizontalStepView) findViewById(R.id.step_view0);
         List<String> list0 = new ArrayList<>();
         list0.add("接单");
         list0.add("打包");
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity
     {
         List<String> list1 = new ArrayList<>();
         list1.add("接单");
-        StepView setpview1 = (StepView) findViewById(R.id.step_view1);
+        HorizontalStepView setpview1 = (HorizontalStepView) findViewById(R.id.step_view1);
         setpview1.setStepsViewIndicatorComplectingPosition(0)//设置完成的步数
                 .setStepViewTexts(list1)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
         List<String> list2 = new ArrayList<>();
         list2.add("接单");
         list2.add("打包");
-        StepView setpview2 = (StepView) findViewById(R.id.step_view2);
+        HorizontalStepView setpview2 = (HorizontalStepView) findViewById(R.id.step_view2);
         setpview2.setStepsViewIndicatorComplectingPosition(0)//设置完成的步数
                 .setStepViewTexts(list2)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
         list3.add("接单");
         list3.add("打包");
         list3.add("出发");
-        StepView setpview3 = (StepView) findViewById(R.id.step_view3);
+        HorizontalStepView setpview3 = (HorizontalStepView) findViewById(R.id.step_view3);
         setpview3.setStepsViewIndicatorComplectingPosition(1)//设置完成的步数
                 .setStepViewTexts(list3)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity
         list4.add("打包");
         list4.add("出发");
         list4.add("送单");
-        StepView setpview4 = (StepView) findViewById(R.id.step_view4);
+        HorizontalStepView setpview4 = (HorizontalStepView) findViewById(R.id.step_view4);
         setpview4.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list4)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity
         list5.add("出发");
         list5.add("送单");
         list5.add("完成");
-        StepView setpview5 = (StepView) findViewById(R.id.step_view5);
+        HorizontalStepView setpview5 = (HorizontalStepView) findViewById(R.id.step_view5);
         setpview5.setStepsViewIndicatorComplectingPosition(3)//设置完成的步数
                 .setStepViewTexts(list5)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity
 
     private void showSetpView6()
     {
-        StepView setpview6 = (StepView) findViewById(R.id.step_view6);
+        HorizontalStepView setpview6 = (HorizontalStepView) findViewById(R.id.step_view6);
 
         List<String> list6 = new ArrayList<>();
         list6.add("接单");
@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity
     {
         if(item.getItemId() == R.id.action_drawcanvas)
         {
-            Intent intent = new Intent(this,DrawCanvasActivity.class);
+            Intent intent = new Intent(this, DrawCanvasActivity.class);
             startActivity(intent);
             return true;
         }
