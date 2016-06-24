@@ -1,5 +1,6 @@
-package com.baoyachi.stepview.demo;
+package com.baoyachi.stepview.demo.fragment;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,24 +9,26 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+
+import com.baoyachi.stepview.demo.R;
 
 /**
- * 日期：16/6/22 20:45
+ * 日期：16/6/24 20:00
  * <p>
  * 描述：
  */
-public class DrawCanvasActivity extends AppCompatActivity
+public class DrawCanvasFragment extends Fragment
 {
+    View mView;
+    @Nullable
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState)
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
-        super.onCreate(savedInstanceState);
-        RectView myView = new RectView(this);
-        setContentView(myView);
+        return new RectView(container.getContext());
     }
-
     public class RectView extends View
     {
 

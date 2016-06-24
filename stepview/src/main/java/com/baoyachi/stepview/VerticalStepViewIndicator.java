@@ -170,6 +170,7 @@ public class VerticalStepViewIndicator extends View
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        mOnDrawListener.ondrawIndicator();
         mUnCompletedPaint.setColor(mUnCompletedLineColor);
         mCompletedPaint.setColor(mCompletedLineColor);
 

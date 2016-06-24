@@ -172,6 +172,7 @@ public class HorizontalStepsViewIndicator extends View
     protected synchronized void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        mOnDrawListener.ondrawIndicator();
         mUnCompletedPaint.setColor(mUnCompletedLineColor);
         mCompletedPaint.setColor(mCompletedLineColor);
 
