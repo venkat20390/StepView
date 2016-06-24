@@ -1127,3 +1127,8 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
 
 ##End
 喜欢这个控件的小伙伴可以点击star哦！
+
+##Contact us
+* 【简书】[包牙齿](http://www.jianshu.com/users/7096f185d063/)
+
+* 【微博】[包牙齿](http://weibo.com/baoyachi)
