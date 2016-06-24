@@ -12,10 +12,10 @@ import java.util.List;
 
 /**
  * 日期：16/6/24 11:41
- * <p>
- * 描述：垂直方向的StepView
+ * <p/>
+ * 描述：垂直方向的预览版的StepView
  */
-public class VerticalStepViewActivity extends AppCompatActivity
+public class VerticalStepViewSnapshotActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
