@@ -166,7 +166,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
     @Override
     public void ondrawIndicator()
     {
-        List<Float> complectedXPosition = mStepsViewIndicator.getComplectedXPosition();
+        List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
         if(mTexts != null)
         {
             for(int i = 0; i < mTexts.size(); i++)

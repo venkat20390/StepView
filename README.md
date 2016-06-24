@@ -1,6 +1,6 @@
 
 # StepView [![](https://jitpack.io/v/baoyachi/StepView.svg)](https://jitpack.io/#baoyachi/StepView)
-Step by step，流程指示器。
+Step by step. Step indicator. Flow indicator。  
 
 
 <img src="art/step-icon.png"></img>

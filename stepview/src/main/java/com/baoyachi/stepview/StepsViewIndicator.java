@@ -20,35 +20,35 @@ import java.util.List;
 /**
  * 日期：16/6/22 14:15
  * <p>
- * 描述：StepsViewIndicator指示器
+ * 描述：StepsViewIndicator 指示器
  */
 public class StepsViewIndicator extends View
 {
 
-    //定义默认的高度
+    //定义默认的高度   definition default height
     private int defaultStepIndicatorNum = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
 
-    private float mCompletedLineHeight;//完成线的高度
-    private float mCircleRadius;//圆的半径
+    private float mCompletedLineHeight;//完成线的高度     definition completed line height
+    private float mCircleRadius;//圆的半径  definition circle radius
 
-    private Drawable mCompleteIcon;//完成的默认图片
-    private Drawable mAttentionIcon;//正在进行的默认图片
-    private Drawable mDefaultIcon;//默认的背景图
-    private float mCenterY;//该view的中间位置
-    private float mLeftY;//左上方的Y位置
-    private float mRightY;//右下方的位置
+    private Drawable mCompleteIcon;//完成的默认图片    definition default completed icon
+    private Drawable mAttentionIcon;//正在进行的默认图片     definition default underway icon
+    private Drawable mDefaultIcon;//默认的背景图  definition default unCompleted icon
+    private float mCenterY;//该view的中间位置     definition view centerY position
+    private float mLeftY;//左上方的Y位置  definition rectangle LeftY position
+    private float mRightY;//右下方的位置  definition rectangle RightY position
 
-    private int mStepNum = 0;//当前有几部流程
-    private float mLinePadding;
+    private int mStepNum = 0;//当前有几部流程    there are currently few step
+    private float mLinePadding;//两条连线之间的间距  definition the spacing between the two circles
 
-    private List<Float> mComplectedXPosition;//定义完成时当前view在左边的位置
-    private Paint mUnCompletedPaint;//未完成Paint
-    private Paint mCompletedPaint;//完成paint
-    private int mUnCompletedLineColor = ContextCompat.getColor(getContext(), R.color.uncompleted_color);//定义默认未完成线的颜色
-    private int mCompletedLineColor = Color.WHITE;//定义默认完成线的颜色
+    private List<Float> mCircleCenterPointPositionList;//定义所有圆的圆心点位置的集合 definition all of circles center point list
+    private Paint mUnCompletedPaint;//未完成Paint  definition mUnCompletedPaint
+    private Paint mCompletedPaint;//完成paint      definition mCompletedPaint
+    private int mUnCompletedLineColor = ContextCompat.getColor(getContext(), R.color.uncompleted_color);//定义默认未完成线的颜色  definition mUnCompletedLineColor
+    private int mCompletedLineColor = Color.WHITE;//定义默认完成线的颜色      definition mCompletedLineColor
     private PathEffect mEffects;
 
-    private int mComplectingPosition;//正在进行position
+    private int mComplectingPosition;//正在进行position   underway position
     private Path mPath;
 
     private OnDrawIndicatorListener mOnDrawListener;
@@ -64,7 +64,7 @@ public class StepsViewIndicator extends View
     }
 
     /**
-     * get小圆的半径
+     * get圆的半径  get circle radius
      *
      * @return
      */
@@ -72,6 +72,7 @@ public class StepsViewIndicator extends View
     {
         return mCircleRadius;
     }
+
 
     public StepsViewIndicator(Context context)
     {
@@ -97,7 +98,7 @@ public class StepsViewIndicator extends View
         mPath = new Path();
         mEffects = new DashPathEffect(new float[]{8, 8, 8, 8}, 1);
 
-        mComplectedXPosition = new ArrayList<>();//初始化
+        mCircleCenterPointPositionList = new ArrayList<>();//初始化
 
         mUnCompletedPaint = new Paint();
         mCompletedPaint = new Paint();
@@ -114,11 +115,11 @@ public class StepsViewIndicator extends View
         mUnCompletedPaint.setPathEffect(mEffects);
         mCompletedPaint.setStyle(Paint.Style.FILL);
 
-        //已经完成线的宽高
+        //已经完成线的宽高 set mCompletedLineHeight
         mCompletedLineHeight = 0.05f * defaultStepIndicatorNum;
-        //圆的半径
+        //圆的半径  set mCircleRadius
         mCircleRadius = 0.28f * defaultStepIndicatorNum;
-        //线与线之间的间距
+        //线与线之间的间距    set mLinePadding
         mLinePadding = 0.85f * defaultStepIndicatorNum;
 
         mCompleteIcon = ContextCompat.getDrawable(getContext(), R.drawable.complted);//已经完成的icon
@@ -146,7 +147,7 @@ public class StepsViewIndicator extends View
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
     {
         super.onSizeChanged(w, h, oldw, oldh);
-        //获取中间的高度
+        //获取中间的高度,目的是为了让该view绘制的线和圆在该view垂直居中   get view centerY，keep current stepview center vertical
         mCenterY = 0.5f * getHeight();
         //获取左上方Y的位置，获取该点的意义是为了方便画矩形左上的Y位置
         mLeftY = mCenterY - (mCompletedLineHeight / 2);
@@ -157,9 +158,13 @@ public class StepsViewIndicator extends View
         {
             //先计算全部最左边的padding值（getWidth()-（圆形直径+两圆之间距离）*2）
             float paddingLeft = (getWidth() - mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding) / 2;
-            mComplectedXPosition.add(paddingLeft + mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
+            //add to list
+            mCircleCenterPointPositionList.add(paddingLeft + mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
         }
 
+        /**
+         * set listener
+         */
         mOnDrawListener.ondrawIndicator();
     }
 
@@ -170,17 +175,17 @@ public class StepsViewIndicator extends View
         mUnCompletedPaint.setColor(mUnCompletedLineColor);
         mCompletedPaint.setColor(mCompletedLineColor);
 
-        //-----------------------画线---------------------------------------------------------------
-        for(int i = 0; i < mComplectedXPosition.size() - 1; i++)
+        //-----------------------画线-------draw line-----------------------------------------------
+        for(int i = 0; i < mCircleCenterPointPositionList.size() - 1; i++)
         {
             //前一个ComplectedXPosition
-            final float preComplectedXPosition = mComplectedXPosition.get(i);
+            final float preComplectedXPosition = mCircleCenterPointPositionList.get(i);
             //后一个ComplectedXPosition
-            final float afterComplectedXPosition = mComplectedXPosition.get(i + 1);
+            final float afterComplectedXPosition = mCircleCenterPointPositionList.get(i + 1);
 
             if(i < mComplectingPosition)//判断在完成之前的所有点
             {
-                //判断在完成之前的所有点，画完成的线，这里是矩形
+                //判断在完成之前的所有点，画完成的线，这里是矩形,很细的矩形，类似线，为了做区分，好看些
                 canvas.drawRect(preComplectedXPosition + mCircleRadius - 10, mLeftY, afterComplectedXPosition - mCircleRadius + 10, mRightY, mCompletedPaint);
             } else
             {
@@ -189,19 +194,19 @@ public class StepsViewIndicator extends View
                 canvas.drawPath(mPath, mUnCompletedPaint);
             }
         }
-        //-----------------------画线---------------------------------------------------------------
+        //-----------------------画线-------draw line-----------------------------------------------
 
 
-        //-----------------------画图标--------------------------------------------------------------
-        for(int i = 0; i < mComplectedXPosition.size(); i++)
+        //-----------------------画图标-----draw icon-----------------------------------------------
+        for(int i = 0; i < mCircleCenterPointPositionList.size(); i++)
         {
-            final float currentComplectedXPosition = mComplectedXPosition.get(i);
+            final float currentComplectedXPosition = mCircleCenterPointPositionList.get(i);
             Rect rect = new Rect((int) (currentComplectedXPosition - mCircleRadius), (int) (mCenterY - mCircleRadius), (int) (currentComplectedXPosition + mCircleRadius), (int) (mCenterY + mCircleRadius));
             if(i < mComplectingPosition)
             {
                 mCompleteIcon.setBounds(rect);
                 mCompleteIcon.draw(canvas);
-            } else if(i == mComplectingPosition && mComplectedXPosition.size() != 1)
+            } else if(i == mComplectingPosition && mCircleCenterPointPositionList.size() != 1)
             {
                 mCompletedPaint.setColor(Color.WHITE);
                 canvas.drawCircle(currentComplectedXPosition, mCenterY, mCircleRadius * 1.1f, mCompletedPaint);
@@ -213,7 +218,7 @@ public class StepsViewIndicator extends View
                 mDefaultIcon.draw(canvas);
             }
         }
-        //-----------------------画图标--------------------------------------------------------------
+        //-----------------------画图标-----draw icon-----------------------------------------------
     }
 
     /**
@@ -221,9 +226,9 @@ public class StepsViewIndicator extends View
      *
      * @return
      */
-    public List<Float> getComplectedXPosition()
+    public List<Float> getCircleCenterPointPositionList()
     {
-        return mComplectedXPosition;
+        return mCircleCenterPointPositionList;
     }
 
     /**
