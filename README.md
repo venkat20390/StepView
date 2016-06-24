@@ -304,7 +304,7 @@ DashPathEffect:DashPathEffect是PathEffect类的一个子类,可以使paint画�
 
 ##Global graph 我们先来看下面这张动态全局预览图.
 我们来看下全局预览图，当前StepView的展示是根据StepView的位置动态调整的。
-<img src="art/splash.png"></img>
+<img width="300" width=“600”  src="art/splash.png"></img>
 
 是不是有了上面的小知识点的引导，这张图看起后，是不是思路就清晰许多了呢!是的，StepView本身就是有图片矩形和虚线绘制而成，下面我们进行拆分。
 一步步解析。
