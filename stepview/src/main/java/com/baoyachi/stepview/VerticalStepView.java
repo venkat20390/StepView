@@ -1,23 +1,28 @@
 package com.baoyachi.stepview;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import java.util.List;
 
 /**
  * 日期：16/6/24 11:48
- * <p/>
+ * <p>
  * 描述：
  */
-public class VerticalStepView extends LinearLayout
+public class VerticalStepView extends LinearLayout implements VerticalStepViewIndicator.OnDrawIndicatorListener
 {
+    private int defaultStepIndicatorNum = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
     private RelativeLayout mTextContainer;
     private VerticalStepViewIndicator mStepsViewIndicator;
     private List<String> mTexts;
@@ -46,9 +51,15 @@ public class VerticalStepView extends LinearLayout
     {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.widget_vertical_stepsview, this);
         mStepsViewIndicator = (VerticalStepViewIndicator) rootView.findViewById(R.id.steps_indicator);
-//        mStepsViewIndicator.setOnDrawListener(this);
-//        mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);
-//        mTextContainer.removeAllViews();
+        mStepsViewIndicator.setOnDrawListener(this);
+        mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);
+        mTextContainer.removeAllViews();
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
+    {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     /**
@@ -158,17 +169,17 @@ public class VerticalStepView extends LinearLayout
         return this;
     }
 
-
+    @Override
     public void ondrawIndicator()
     {
         List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
         if(mTexts != null)
         {
-            /*for(int i = 0; i < mTexts.size(); i++)
+            for(int i = 0; i < mTexts.size(); i++)
             {
                 TextView textView = new TextView(getContext());
                 textView.setText(mTexts.get(i));
-                textView.setX(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() - 10);//这里的-10是将文字进行调整居中，稍后再动态修改
+                textView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
                 textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 if(i <= mComplectingPosition)
@@ -181,8 +192,7 @@ public class VerticalStepView extends LinearLayout
                 }
 
                 mTextContainer.addView(textView);
-            }*/
+            }
         }
     }
-
 }

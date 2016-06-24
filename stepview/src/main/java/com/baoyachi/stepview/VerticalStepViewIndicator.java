@@ -50,6 +50,29 @@ public class VerticalStepViewIndicator extends View
     private int mComplectingPosition;//正在进行position   underway position
     private Path mPath;
 
+    private OnDrawIndicatorListener mOnDrawListener;
+
+    /**
+     * 设置监听
+     *
+     * @param onDrawListener
+     */
+    public void setOnDrawListener(OnDrawIndicatorListener onDrawListener)
+    {
+        mOnDrawListener = onDrawListener;
+    }
+
+    /**
+     * get圆的半径  get circle radius
+     *
+     * @return
+     */
+    public float getCircleRadius()
+    {
+        return mCircleRadius;
+    }
+
+
     public VerticalStepViewIndicator(Context context)
     {
         this(context, null);
@@ -137,6 +160,10 @@ public class VerticalStepViewIndicator extends View
             //add to list
             mCircleCenterPointPositionList.add(paddingTop + mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
         }
+        /**
+         * set listener
+         */
+        mOnDrawListener.ondrawIndicator();
     }
 
     @Override
@@ -275,5 +302,11 @@ public class VerticalStepViewIndicator extends View
         this.mAttentionIcon = attentionIcon;
     }
 
-
+    /**
+     * 设置对view监听
+     */
+    public interface OnDrawIndicatorListener
+    {
+        void ondrawIndicator();
+    }
 }

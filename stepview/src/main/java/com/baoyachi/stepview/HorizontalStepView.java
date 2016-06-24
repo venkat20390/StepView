@@ -29,7 +29,6 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
 
-
     public HorizontalStepView(Context context)
     {
         this(context, null);
@@ -161,7 +160,6 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
         mStepsViewIndicator.setAttentionIcon(attentionIcon);
         return this;
     }
-
 
     @Override
     public void ondrawIndicator()

@@ -19,7 +19,7 @@ import java.util.List;
 
 /**
  * 日期：16/6/22 14:15
- * <p>
+ * <p/>
  * 描述：StepsViewIndicator 指示器
  */
 public class HorizontalStepsViewIndicator extends View
@@ -285,6 +285,7 @@ public class HorizontalStepsViewIndicator extends View
 
     /**
      * 设置已完成图片
+     *
      * @param completeIcon
      */
     public void setCompleteIcon(Drawable completeIcon)
@@ -294,6 +295,7 @@ public class HorizontalStepsViewIndicator extends View
 
     /**
      * 设置正在进行中的图片
+     *
      * @param attentionIcon
      */
     public void setAttentionIcon(Drawable attentionIcon)
