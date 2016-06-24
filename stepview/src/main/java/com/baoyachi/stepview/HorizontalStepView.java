@@ -19,28 +19,28 @@ import java.util.List;
  * <p>
  * 描述：StepView
  */
-public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawIndicatorListener
+public class HorizontalStepView extends LinearLayout implements HorizontalStepsViewIndicator.OnDrawIndicatorListener
 {
 
     private RelativeLayout mTextContainer;
-    private StepsViewIndicator mStepsViewIndicator;
+    private HorizontalStepsViewIndicator mStepsViewIndicator;
     private List<String> mTexts;
     private int mComplectingPosition;
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
 
 
-    public StepView(Context context)
+    public HorizontalStepView(Context context)
     {
         this(context, null);
     }
 
-    public StepView(Context context, AttributeSet attrs)
+    public HorizontalStepView(Context context, AttributeSet attrs)
     {
         this(context, attrs, 0);
     }
 
-    public StepView(Context context, AttributeSet attrs, int defStyleAttr)
+    public HorizontalStepView(Context context, AttributeSet attrs, int defStyleAttr)
     {
         super(context, attrs, defStyleAttr);
         init();
@@ -49,7 +49,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
     private void init()
     {
         View rootView = LayoutInflater.from(getContext()).inflate(R.layout.widget_stepsview, this);
-        mStepsViewIndicator = (StepsViewIndicator) rootView.findViewById(R.id.steps_indicator);
+        mStepsViewIndicator = (HorizontalStepsViewIndicator) rootView.findViewById(R.id.steps_indicator);
         mStepsViewIndicator.setOnDrawListener(this);
         mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);
         mTextContainer.removeAllViews();
@@ -61,7 +61,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param texts
      * @return
      */
-    public StepView setStepViewTexts(List<String> texts)
+    public HorizontalStepView setStepViewTexts(List<String> texts)
     {
         mTexts = texts;
         mStepsViewIndicator.setStepNum(mTexts.size());
@@ -74,7 +74,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param complectingPosition
      * @return
      */
-    public StepView setStepsViewIndicatorComplectingPosition(int complectingPosition)
+    public HorizontalStepView setStepsViewIndicatorComplectingPosition(int complectingPosition)
     {
         mComplectingPosition = complectingPosition;
         mStepsViewIndicator.setComplectingPosition(complectingPosition);
@@ -87,7 +87,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param unComplectedTextColor
      * @return
      */
-    public StepView setStepViewUnComplectedTextColor(int unComplectedTextColor)
+    public HorizontalStepView setStepViewUnComplectedTextColor(int unComplectedTextColor)
     {
         mUnComplectedTextColor = unComplectedTextColor;
         return this;
@@ -99,7 +99,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param complectedTextColor
      * @return
      */
-    public StepView setStepViewComplectedTextColor(int complectedTextColor)
+    public HorizontalStepView setStepViewComplectedTextColor(int complectedTextColor)
     {
         this.mComplectedTextColor = complectedTextColor;
         return this;
@@ -111,7 +111,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param unCompletedLineColor
      * @return
      */
-    public StepView setStepsViewIndicatorUnCompletedLineColor(int unCompletedLineColor)
+    public HorizontalStepView setStepsViewIndicatorUnCompletedLineColor(int unCompletedLineColor)
     {
         mStepsViewIndicator.setUnCompletedLineColor(unCompletedLineColor);
         return this;
@@ -123,7 +123,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      * @param completedLineColor
      * @return
      */
-    public StepView setStepsViewIndicatorCompletedLineColor(int completedLineColor)
+    public HorizontalStepView setStepsViewIndicatorCompletedLineColor(int completedLineColor)
     {
         mStepsViewIndicator.setCompletedLineColor(completedLineColor);
         return this;
@@ -134,7 +134,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      *
      * @param defaultIcon
      */
-    public StepView setStepsViewIndicatorDefaultIcon(Drawable defaultIcon)
+    public HorizontalStepView setStepsViewIndicatorDefaultIcon(Drawable defaultIcon)
     {
         mStepsViewIndicator.setDefaultIcon(defaultIcon);
         return this;
@@ -145,7 +145,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      *
      * @param completeIcon
      */
-    public StepView setStepsViewIndicatorCompleteIcon(Drawable completeIcon)
+    public HorizontalStepView setStepsViewIndicatorCompleteIcon(Drawable completeIcon)
     {
         mStepsViewIndicator.setCompleteIcon(completeIcon);
         return this;
@@ -156,7 +156,7 @@ public class StepView extends LinearLayout implements StepsViewIndicator.OnDrawI
      *
      * @param attentionIcon
      */
-    public StepView setStepsViewIndicatorAttentionIcon(Drawable attentionIcon)
+    public HorizontalStepView setStepsViewIndicatorAttentionIcon(Drawable attentionIcon)
     {
         mStepsViewIndicator.setAttentionIcon(attentionIcon);
         return this;

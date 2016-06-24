@@ -22,7 +22,7 @@ import java.util.List;
  * <p>
  * 描述：StepsViewIndicator 指示器
  */
-public class StepsViewIndicator extends View
+public class HorizontalStepsViewIndicator extends View
 {
 
     //定义默认的高度   definition default height
@@ -74,17 +74,17 @@ public class StepsViewIndicator extends View
     }
 
 
-    public StepsViewIndicator(Context context)
+    public HorizontalStepsViewIndicator(Context context)
     {
         this(context, null);
     }
 
-    public StepsViewIndicator(Context context, AttributeSet attrs)
+    public HorizontalStepsViewIndicator(Context context, AttributeSet attrs)
     {
         this(context, attrs, 0);
     }
 
-    public StepsViewIndicator(Context context, AttributeSet attrs, int defStyle)
+    public HorizontalStepsViewIndicator(Context context, AttributeSet attrs, int defStyle)
     {
         super(context, attrs, defStyle);
         init();
