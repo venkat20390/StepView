@@ -21,7 +21,7 @@ public class VerticalStepViewSnapshotActivity extends AppCompatActivity
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vertical_stepview);
+        setContentView(R.layout.activity_vertical_stepview_snapshot);
 
         VerticalStepView setpview0 = (VerticalStepView) findViewById(R.id.step_view0);
         List<String> list0 = new ArrayList<>();
