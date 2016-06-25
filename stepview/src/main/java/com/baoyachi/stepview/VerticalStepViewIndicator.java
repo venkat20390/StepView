@@ -135,6 +135,7 @@ public class VerticalStepViewIndicator extends View
         int height = 0;
         if(mStepNum>0)
         {
+            //dynamic measure VerticalStepViewIndicator height
             height = (int) (getPaddingTop()+getPaddingBottom() + mCircleRadius * 2 * mStepNum +(mStepNum-1)*mLinePadding);
         }
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
