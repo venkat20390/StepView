@@ -116,6 +116,9 @@ mSetpview0 = (VerticalStepView) mView.findViewById(R.id.step_view0);
 
 Use So Simple!!!
 
+###See Detail
+you can see there[Example](https://github.com/baoyachi/StepView/blob/master/app/src/main/java/com/baoyachi/stepview/demo/MainActivity.java)
+
 
 
 ##Introduction
