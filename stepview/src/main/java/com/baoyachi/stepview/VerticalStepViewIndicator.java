@@ -132,7 +132,11 @@ public class VerticalStepViewIndicator extends View
     {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int width = defaultStepIndicatorNum;
-        int height = defaultStepIndicatorNum;
+        int height = 0;
+        if(mStepNum>0)
+        {
+            height = (int) (getPaddingTop()+getPaddingBottom() + mCircleRadius * 2 * mStepNum +(mStepNum-1)*mLinePadding);
+        }
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
             width = Math.min(width, MeasureSpec.getSize(widthMeasureSpec));
@@ -217,7 +221,6 @@ public class VerticalStepViewIndicator extends View
             }
         }
         //-----------------------画图标-----draw icon-----------------------------------------------
-
     }
 
 

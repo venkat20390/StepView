@@ -13,22 +13,25 @@ import com.baoyachi.stepview.demo.fragment.VerticalStepViewSnapshotFragment;
 
 /**
  * 日期：16/6/22 16:01
- * <p>
+ * <p/>
  * 描述：
  */
 public class MainActivity extends AppCompatActivity
 {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction mFragmentTransaction;
 
-        HorizontalStepviewFragment mHorizontalStepviewFragment = new HorizontalStepviewFragment();
-        mFragmentTransaction = getFragmentManager().beginTransaction();
-        mFragmentTransaction.replace(R.id.container, mHorizontalStepviewFragment).commit();
+        //        HorizontalStepviewFragment mHorizontalStepviewFragment = new HorizontalStepviewFragment();
+        //        mFragmentTransaction = getFragmentManager().beginTransaction();
+        //        mFragmentTransaction.replace(R.id.container, mHorizontalStepviewFragment).commit();
+        VerticalStepViewFragment mVerticalStepViewFragment = new VerticalStepViewFragment();
+        getFragmentManager().beginTransaction().replace(R.id.container, mVerticalStepViewFragment).commit();
     }
 
     @Override
@@ -43,7 +46,7 @@ public class MainActivity extends AppCompatActivity
     {
         VerticalStepViewFragment mVerticalStepViewFragment;
         DrawCanvasFragment mDrawCanvasFragment;
-        HorizontalStepviewFragment mHorizontalStepviewFragment ;
+        HorizontalStepviewFragment mHorizontalStepviewFragment;
         VerticalStepViewSnapshotFragment mVerticalStepViewSnapshotFragment;
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         int itemId = item.getItemId();
