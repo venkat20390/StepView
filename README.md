@@ -13,7 +13,7 @@ Step by step. Step indicator. Flow indicator。
 <img width="300" width=“500” src="art/splash.png"></img>
 
 ####also like this:VerticalStepView
-<img width="300" width=“500” src="art/vertical_stepview.png"></img>
+<img width="300" width=“500” src="art/vertical_stepview.gif"></img>
 
 Yeah，I am not working in JD，Just imitate.It's a joke .ha ha ha 
 
