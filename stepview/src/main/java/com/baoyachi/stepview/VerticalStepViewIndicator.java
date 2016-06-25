@@ -161,9 +161,8 @@ public class VerticalStepViewIndicator extends View
         for(int i = 0; i < mStepNum; i++)
         {
             //先计算全部最左边的padding值（getWidth()-（圆形直径+两圆之间距离）*2）
-            float paddingTop = (getHeight() - mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding) / 2;
             //add to list
-            mCircleCenterPointPositionList.add(paddingTop + mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
+            mCircleCenterPointPositionList.add( mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
         }
         /**
          * set listener
