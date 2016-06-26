@@ -51,6 +51,7 @@ public class VerticalStepViewIndicator extends View
     private Path mPath;
 
     private OnDrawIndicatorListener mOnDrawListener;
+    private Rect mRect;
 
     /**
      * 设置监听
@@ -203,20 +204,20 @@ public class VerticalStepViewIndicator extends View
         for(int i = 0; i < mCircleCenterPointPositionList.size(); i++)
         {
             final float currentComplectedXPosition = mCircleCenterPointPositionList.get(i);
-            Rect rect = new Rect((int) (mCenterX - mCircleRadius), (int) (currentComplectedXPosition - mCircleRadius), (int) (mCenterX + mCircleRadius), (int) (currentComplectedXPosition + mCircleRadius));
+            mRect = new Rect((int) (mCenterX - mCircleRadius), (int) (currentComplectedXPosition - mCircleRadius), (int) (mCenterX + mCircleRadius), (int) (currentComplectedXPosition + mCircleRadius));
             if(i < mComplectingPosition)
             {
-                mCompleteIcon.setBounds(rect);
+                mCompleteIcon.setBounds(mRect);
                 mCompleteIcon.draw(canvas);
             } else if(i == mComplectingPosition && mCircleCenterPointPositionList.size() != 1)
             {
                 mCompletedPaint.setColor(Color.WHITE);
                 canvas.drawCircle(mCenterX, currentComplectedXPosition, mCircleRadius * 1.1f, mCompletedPaint);
-                mAttentionIcon.setBounds(rect);
+                mAttentionIcon.setBounds(mRect);
                 mAttentionIcon.draw(canvas);
             } else
             {
-                mDefaultIcon.setBounds(rect);
+                mDefaultIcon.setBounds(mRect);
                 mDefaultIcon.draw(canvas);
             }
         }
