@@ -165,14 +165,20 @@ public class HorizontalStepsViewIndicator extends View
         /**
          * set listener
          */
-        mOnDrawListener.ondrawIndicator();
+        if(mOnDrawListener!=null)
+        {
+            mOnDrawListener.ondrawIndicator();
+        }
     }
 
     @Override
     protected synchronized void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        mOnDrawListener.ondrawIndicator();
+        if(mOnDrawListener!=null)
+        {
+            mOnDrawListener.ondrawIndicator();
+        }
         mUnCompletedPaint.setColor(mUnCompletedLineColor);
         mCompletedPaint.setColor(mCompletedLineColor);
 

@@ -134,10 +134,10 @@ public class VerticalStepViewIndicator extends View
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int width = defaultStepIndicatorNum;
         int height = 0;
-        if(mStepNum>0)
+        if(mStepNum > 0)
         {
             //dynamic measure VerticalStepViewIndicator height
-            height = (int) (getPaddingTop()+getPaddingBottom() + mCircleRadius * 2 * mStepNum +(mStepNum-1)*mLinePadding);
+            height = (int) (getPaddingTop() + getPaddingBottom() + mCircleRadius * 2 * mStepNum + (mStepNum - 1) * mLinePadding);
         }
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
@@ -163,19 +163,25 @@ public class VerticalStepViewIndicator extends View
         {
             //先计算全部最左边的padding值（getWidth()-（圆形直径+两圆之间距离）*2）
             //add to list
-            mCircleCenterPointPositionList.add( mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
+            mCircleCenterPointPositionList.add(mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
         }
         /**
          * set listener
          */
-        mOnDrawListener.ondrawIndicator();
+        if(mOnDrawListener != null)
+        {
+            mOnDrawListener.ondrawIndicator();
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        mOnDrawListener.ondrawIndicator();
+        if(mOnDrawListener != null)
+        {
+            mOnDrawListener.ondrawIndicator();
+        }
         mUnCompletedPaint.setColor(mUnCompletedLineColor);
         mCompletedPaint.setColor(mCompletedLineColor);
 
