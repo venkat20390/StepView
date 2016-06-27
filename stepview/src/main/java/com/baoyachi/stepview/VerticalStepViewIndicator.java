@@ -311,9 +311,9 @@ public class VerticalStepViewIndicator extends View
     /**
      * is reverse draw 是否倒序画
      */
-    public void reverseDraw(boolean isReverSe)
+    public void reverseDraw(boolean isReverseDraw)
     {
-        this.mIsReverseDraw = isReverSe;
+        this.mIsReverseDraw = isReverseDraw;
         invalidate();
     }
 
