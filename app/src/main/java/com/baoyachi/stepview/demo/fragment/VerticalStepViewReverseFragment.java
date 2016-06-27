@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 日期：16/6/24 19:39
  * <p>
- * 描述：
+ * 描述：默认是反向画 default this VerticalStepViewIndicator draw is reverse
  */
 public class VerticalStepViewReverseFragment extends Fragment
 {

@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * 日期：16/6/24 19:39
  * <p>
- * 描述：
+ * 描述：正向画流程，默认是反向 you shoudle use this method VerticalStepView.reverseDraw(false)；
  */
 public class VerticalStepViewFrowardFragment extends Fragment
 {
