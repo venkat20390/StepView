@@ -76,6 +76,30 @@ use code
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getActivity(), R.drawable.attention));//设置StepsViewIndicator AttentionIcon
 ```
 ###use VerticalStepView
+this widget can reverse or forward draw,please look at below jd express picture 
+
+<img width="300" width=“500” src="art/jd_reverse_express.png"></img>
+
+this status is reverse draw,so ,wo also have a method can realize jd express effect
+like this:
+<img width="300" width=“500” src="art/vertical_snapshot_reverse.png"></img>
+
+```javass
+	/**
+     * is reverse draw 是否倒序画
+     * 
+     * @param isReverSe default is true
+     * @return
+     */
+    public VerticalStepView reverseDraw(boolean isReverSe)
+    {
+        this.mStepsViewIndicator.reverseDraw(isReverSe);
+        return this;
+    }
+```
+you can use this method can realize reverse draw;Also you can see exmaple[MainActivity](https://github.com/baoyachi/StepView/blob/master/app/src/main/java/com/baoyachi/stepview/demo/MainActivity.java),this example has detail useful description;
+
+
 in xml
 
 ```java
@@ -104,6 +128,7 @@ mSetpview0 = (VerticalStepView) mView.findViewById(R.id.step_view0);
         list0.add("配送员【包牙齿】已出发，联系电话【130-0000-0000】，感谢您的耐心等待，参加评价还能赢取好多礼物哦");
         list0.add("感谢你在京东购物，欢迎你下次光临！");
         mSetpview0.setStepsViewIndicatorComplectingPosition(list0.size() - 2)//设置完成的步数
+		         .reverseDraw(false)//default is true
                 .setStepViewTexts(list0)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
@@ -116,7 +141,7 @@ mSetpview0 = (VerticalStepView) mView.findViewById(R.id.step_view0);
 
 Use So Simple!!!
 
-###See Detail
+##See Detail
 you can see there[Example](https://github.com/baoyachi/StepView/blob/master/app/src/main/java/com/baoyachi/stepview/demo/MainActivity.java)
 
 

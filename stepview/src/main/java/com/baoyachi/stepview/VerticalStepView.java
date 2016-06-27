@@ -169,6 +169,9 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
 
     /**
      * is reverse draw 是否倒序画
+     *
+     * @param isReverSe default is true
+     * @return
      */
     public VerticalStepView reverseDraw(boolean isReverSe)
     {
