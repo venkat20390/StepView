@@ -169,6 +169,14 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
         return this;
     }
 
+    /**
+     * is reverse draw 是否倒序画
+     */
+    public void reverseDraw(boolean isReverSe)
+    {
+        this.mStepsViewIndicator.reverseDraw(isReverSe);
+    }
+
     @Override
     public void ondrawIndicator()
     {

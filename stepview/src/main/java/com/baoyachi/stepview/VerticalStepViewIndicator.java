@@ -52,7 +52,9 @@ public class VerticalStepViewIndicator extends View
 
     private OnDrawIndicatorListener mOnDrawListener;
     private Rect mRect;
-    private int mHeight;
+    private int mHeight;//这个控件的动态高度    this view dynamic height
+    private boolean mIsReverseDraw;//is reverse draw this view;
+
 
     /**
      * 设置监听
@@ -126,6 +128,8 @@ public class VerticalStepViewIndicator extends View
         mCompleteIcon = ContextCompat.getDrawable(getContext(), R.drawable.complted);//已经完成的icon
         mAttentionIcon = ContextCompat.getDrawable(getContext(), R.drawable.attention);//正在进行的icon
         mDefaultIcon = ContextCompat.getDrawable(getContext(), R.drawable.default_icon);//未完成的icon
+
+        mIsReverseDraw = true;//default draw
     }
 
 
@@ -162,9 +166,14 @@ public class VerticalStepViewIndicator extends View
 
         for(int i = 0; i < mStepNum; i++)
         {
-            //先计算全部最左边的padding值（getWidth()-（圆形直径+两圆之间距离）*2）
-            //add to list
-            mCircleCenterPointPositionList.add(mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
+            //reverse draw VerticalStepViewIndicator
+            if(mIsReverseDraw)
+            {
+                mCircleCenterPointPositionList.add(mHeight - (mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding));
+            } else
+            {
+                mCircleCenterPointPositionList.add(mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
+            }
         }
         /**
          * set listener
@@ -197,12 +206,27 @@ public class VerticalStepViewIndicator extends View
             if(i < mComplectingPosition)//判断在完成之前的所有点
             {
                 //判断在完成之前的所有点，画完成的线，这里是矩形,很细的矩形，类似线，为了做区分，好看些
-                canvas.drawRect(mLeftY, preComplectedXPosition + mCircleRadius - 10, mRightY, afterComplectedXPosition - mCircleRadius + 10, mCompletedPaint);
+                if(mIsReverseDraw)
+                {
+                    canvas.drawRect(mLeftY, afterComplectedXPosition + mCircleRadius - 10, mRightY, preComplectedXPosition - mCircleRadius + 10, mCompletedPaint);
+                } else
+                {
+                    canvas.drawRect(mLeftY, preComplectedXPosition + mCircleRadius - 10, mRightY, afterComplectedXPosition - mCircleRadius + 10, mCompletedPaint);
+                }
             } else
             {
-                mPath.moveTo(mCenterX, preComplectedXPosition + mCircleRadius);
-                mPath.lineTo(mCenterX, afterComplectedXPosition - mCircleRadius);
-                canvas.drawPath(mPath, mUnCompletedPaint);
+                if(mIsReverseDraw)
+                {
+                    mPath.moveTo(mCenterX, afterComplectedXPosition + mCircleRadius);
+                    mPath.lineTo(mCenterX, preComplectedXPosition - mCircleRadius);
+                    canvas.drawPath(mPath, mUnCompletedPaint);
+                } else
+                {
+                    mPath.moveTo(mCenterX, preComplectedXPosition + mCircleRadius);
+                    mPath.lineTo(mCenterX, afterComplectedXPosition - mCircleRadius);
+                    canvas.drawPath(mPath, mUnCompletedPaint);
+                }
+
             }
         }
         //-----------------------画线-------draw line-----------------------------------------------
@@ -282,6 +306,15 @@ public class VerticalStepViewIndicator extends View
     public void setCompletedLineColor(int completedLineColor)
     {
         this.mCompletedLineColor = completedLineColor;
+    }
+
+    /**
+     * is reverse draw 是否倒序画
+     */
+    public void reverseDraw(boolean isReverSe)
+    {
+        this.mIsReverseDraw = isReverSe;
+        invalidate();
     }
 
     /**
