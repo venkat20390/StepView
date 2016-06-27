@@ -19,7 +19,7 @@ import java.util.List;
  * <p>
  * 描述：
  */
-public class VerticalStepViewFragment extends Fragment
+public class VerticalStepViewFrowardFragment extends Fragment
 {
     View mView;
     private VerticalStepView mSetpview0;
@@ -54,6 +54,7 @@ public class VerticalStepViewFragment extends Fragment
         list0.add("配送员【包牙齿】已出发，联系电话【130-0000-0000】，感谢您的耐心等待，参加评价还能赢取好多礼物哦");
         list0.add("感谢你在京东购物，欢迎你下次光临！");
         mSetpview0.setStepsViewIndicatorComplectingPosition(list0.size() - 2)//设置完成的步数
+                .reverseDraw(false)
                 .setStepViewTexts(list0)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色

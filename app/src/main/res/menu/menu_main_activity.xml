@@ -22,8 +22,15 @@
         app:showAsAction="withText"/>
 
     <item
-        android:id="@+id/action_vertical_stepview"
+        android:id="@+id/action_vertical_forward"
         android:orderInCategory="100"
-        android:title="Vertical Stepview"
+        android:title="Vertical Stepview Forward"
         app:showAsAction="withText"/>
+
+    <item
+        android:id="@+id/action_vertical_reverse"
+        android:orderInCategory="100"
+        android:title="Vertical Stepview Reverse"
+        app:showAsAction="withText"/>
+
 </menu>

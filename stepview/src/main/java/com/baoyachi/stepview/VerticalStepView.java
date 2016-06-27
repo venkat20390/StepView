@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import java.util.List;
  */
 public class VerticalStepView extends LinearLayout implements VerticalStepViewIndicator.OnDrawIndicatorListener
 {
-    private int defaultStepIndicatorNum = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
     private RelativeLayout mTextContainer;
     private VerticalStepViewIndicator mStepsViewIndicator;
     private List<String> mTexts;
@@ -172,9 +170,10 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     /**
      * is reverse draw 是否倒序画
      */
-    public void reverseDraw(boolean isReverSe)
+    public VerticalStepView reverseDraw(boolean isReverSe)
     {
         this.mStepsViewIndicator.reverseDraw(isReverSe);
+        return this;
     }
 
     @Override

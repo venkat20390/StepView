@@ -8,7 +8,8 @@ import android.view.MenuItem;
 
 import com.baoyachi.stepview.demo.fragment.DrawCanvasFragment;
 import com.baoyachi.stepview.demo.fragment.HorizontalStepviewFragment;
-import com.baoyachi.stepview.demo.fragment.VerticalStepViewFragment;
+import com.baoyachi.stepview.demo.fragment.VerticalStepViewReverseFragment;
+import com.baoyachi.stepview.demo.fragment.VerticalStepViewFrowardFragment;
 import com.baoyachi.stepview.demo.fragment.VerticalStepViewSnapshotFragment;
 
 /**
@@ -20,13 +21,15 @@ public class MainActivity extends AppCompatActivity
 {
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        VerticalStepViewFragment mVerticalStepViewFragment = new VerticalStepViewFragment();
+        VerticalStepViewReverseFragment mVerticalStepViewFragment = new VerticalStepViewReverseFragment();
         getFragmentManager().beginTransaction().replace(R.id.container, mVerticalStepViewFragment).commit();
     }
 
@@ -40,10 +43,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item)
     {
-        VerticalStepViewFragment mVerticalStepViewFragment;
+        VerticalStepViewReverseFragment mVerticalStepViewFragment;
         DrawCanvasFragment mDrawCanvasFragment;
         HorizontalStepviewFragment mHorizontalStepviewFragment;
         VerticalStepViewSnapshotFragment mVerticalStepViewSnapshotFragment;
+        VerticalStepViewFrowardFragment mVerticalStepViewReverseFragment;
         FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
         int itemId = item.getItemId();
         switch(itemId)
@@ -57,10 +61,16 @@ public class MainActivity extends AppCompatActivity
                 mDrawCanvasFragment = new DrawCanvasFragment();
                 fragmentTransaction.replace(R.id.container, mDrawCanvasFragment).commit();
                 break;
-            case R.id.action_vertical_stepview:
-                mVerticalStepViewFragment = new VerticalStepViewFragment();
+            case R.id.action_vertical_reverse:
+                mVerticalStepViewFragment = new VerticalStepViewReverseFragment();
                 fragmentTransaction.replace(R.id.container, mVerticalStepViewFragment).commit();
                 break;
+
+            case R.id.action_vertical_forward:
+                mVerticalStepViewReverseFragment = new VerticalStepViewFrowardFragment();
+                fragmentTransaction.replace(R.id.container, mVerticalStepViewReverseFragment).commit();
+                break;
+
             case R.id.action_vertical_stepview_snapshot:
                 mVerticalStepViewSnapshotFragment = new VerticalStepViewSnapshotFragment();
                 fragmentTransaction.replace(R.id.container, mVerticalStepViewSnapshotFragment).commit();
