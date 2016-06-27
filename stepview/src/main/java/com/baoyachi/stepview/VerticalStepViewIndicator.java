@@ -52,6 +52,7 @@ public class VerticalStepViewIndicator extends View
 
     private OnDrawIndicatorListener mOnDrawListener;
     private Rect mRect;
+    private int mHeight;
 
     /**
      * 设置监听
@@ -133,11 +134,11 @@ public class VerticalStepViewIndicator extends View
     {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         int width = defaultStepIndicatorNum;
-        int height = 0;
+        mHeight = 0;
         if(mStepNum > 0)
         {
             //dynamic measure VerticalStepViewIndicator height
-            height = (int) (getPaddingTop() + getPaddingBottom() + mCircleRadius * 2 * mStepNum + (mStepNum - 1) * mLinePadding);
+            mHeight = (int) (getPaddingTop() + getPaddingBottom() + mCircleRadius * 2 * mStepNum + (mStepNum - 1) * mLinePadding);
         }
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
@@ -145,9 +146,9 @@ public class VerticalStepViewIndicator extends View
         }
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(heightMeasureSpec))
         {
-            height = MeasureSpec.getSize(heightMeasureSpec);
+            mHeight = MeasureSpec.getSize(heightMeasureSpec);
         }
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(width, mHeight);
 
     }
 
