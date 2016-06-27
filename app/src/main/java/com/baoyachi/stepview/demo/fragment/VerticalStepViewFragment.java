@@ -47,10 +47,10 @@ public class VerticalStepViewFragment extends Fragment
         list0.add("您的订单已拣货完成");
         list0.add("扫描员已经扫描");
         list0.add("打包成功");
-        list0.add("您的订单在京东【滑动外单分拣中心】发货完成，准备送往京东【北京通州分拣中心】");
+        list0.add("您的订单在京东【华东外单分拣中心】发货完成，准备送往京东【北京通州分拣中心】");
         list0.add("您的订单在京东【北京通州分拣中心】分拣完成");
         list0.add("您的订单在京东【北京通州分拣中心】发货完成，准备送往京东【北京中关村大厦站】");
-        list0.add("您的订单在京东【北京通州分拣中心】验货完成，正在分配配送员");
+        list0.add("您的订单在京东【北京中关村大厦站】验货完成，正在分配配送员");
         list0.add("配送员【包牙齿】已出发，联系电话【130-0000-0000】，感谢您的耐心等待，参加评价还能赢取好多礼物哦");
         list0.add("感谢你在京东购物，欢迎你下次光临！");
         mSetpview0.setStepsViewIndicatorComplectingPosition(list0.size() - 2)//设置完成的步数
