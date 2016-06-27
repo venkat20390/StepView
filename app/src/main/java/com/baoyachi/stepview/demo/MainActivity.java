@@ -26,10 +26,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        //        HorizontalStepviewFragment mHorizontalStepviewFragment = new HorizontalStepviewFragment();
-        //        mFragmentTransaction = getFragmentManager().beginTransaction();
-        //        mFragmentTransaction.replace(R.id.container, mHorizontalStepviewFragment).commit();
         VerticalStepViewFragment mVerticalStepViewFragment = new VerticalStepViewFragment();
         getFragmentManager().beginTransaction().replace(R.id.container, mVerticalStepViewFragment).commit();
     }
