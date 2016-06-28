@@ -590,7 +590,7 @@ DashPathEffect:DashPathEffect是PathEffect类的一个子类,可以使paint画�
 这里的ondrawIndicator()方法是在StepsViewIndicator的onSizeChanged（）引发的回调，来设置TextView
 
 
-好了，其实到了这里，基本上也要接近尾声了.有了前面的只是积累，写VerticalStepView是不是就思路更加明确了呢？其实这个控件看起来‘很复杂’，翻了翻代码，看了也没有多大难度，小伙伴们，只要静下心来，花点时间研究下，发现，也就是那么回事，只要努力，就会有收货。
+好了，其实到了这里，基本上也要接近尾声了.有了前面知识的积累，写VerticalStepView是不是就思路更加明确了呢？其实这个控件看起来‘很复杂’，翻了翻代码，看了也没有多大难度，小伙伴们，只要静下心来，花点时间研究下，发现，也就是那么回事，只要努力，就会有收货。
 
 ###VerticalStepView
 这里就不在啰嗦的阐述VerticalStepView的原理啦，有了上面的HorizontalStepsViewIndicator的讲解，在来看看VerticalStepView应该是非常轻松的吧，好了，有想法的小伙伴何不尝试自己来写这个VerticalStepView，相信你可以的！！！
