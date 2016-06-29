@@ -130,6 +130,7 @@ mSetpview0 = (VerticalStepView) mView.findViewById(R.id.step_view0);
         mSetpview0.setStepsViewIndicatorComplectingPosition(list0.size() - 2)//设置完成的步数
 		         .reverseDraw(false)//default is true
                 .setStepViewTexts(list0)//总步骤
+                .setLinePaddingProportion(0.85f)//设置indicator线与线间距的比例系数
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
