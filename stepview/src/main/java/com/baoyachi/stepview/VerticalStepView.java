@@ -179,6 +179,17 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
         return this;
     }
 
+    /**
+     * set linePadding  proportion 设置线间距的比例系数
+     * @param linePaddingProportion
+     * @return
+     */
+    public VerticalStepView setLinePaddingProportion(float linePaddingProportion)
+    {
+        this.mStepsViewIndicator.setIndicatorLinePaddingProportion(linePaddingProportion);
+        return this;
+    }
+
     @Override
     public void ondrawIndicator()
     {

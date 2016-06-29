@@ -278,6 +278,16 @@ public class VerticalStepViewIndicator extends View
     }
 
     /**
+     *
+     * 设置线间距的比例系数 set linePadding proportion
+     * @param linePaddingProportion
+     */
+    public void setIndicatorLinePaddingProportion(float linePaddingProportion)
+    {
+        this.mLinePadding = linePaddingProportion * defaultStepIndicatorNum;
+    }
+
+    /**
      * 设置正在进行position
      *
      * @param complectingPosition
