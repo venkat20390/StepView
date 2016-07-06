@@ -15,11 +15,6 @@
         android:title="Draw Canvas"
         app:showAsAction="withText"/>
 
-    <item
-        android:id="@+id/action_vertical_stepview_snapshot"
-        android:orderInCategory="100"
-        android:title="Vertical Stepview Snapshot"
-        app:showAsAction="withText"/>
 
     <item
         android:id="@+id/action_vertical_forward"
