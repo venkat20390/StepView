@@ -17,8 +17,6 @@ Step by step. Step indicator. Flow indicator。
 
 Yeah，I am not working in JD，Just imitate.It's a joke .ha ha ha 
 
-####Yeah,also like this
-<img width="300" width=“500” src="art/vertical_snapshot.png"></img>
 
 It is looks like so beautiful.
 
