@@ -57,7 +57,7 @@ in xml
 use code
 
 ```java
- HorizontalStepView setpview0 = (HorizontalStepView) mView.findViewById(R.id.step_view0);
+ HorizontalStepView setpview0 = (HorizontalStepView) findViewById(R.id.step_view0);
         List<String> list0 = new ArrayList<>();
         list0.add("接单");
         list0.add("打包");
@@ -114,7 +114,7 @@ in code
 
 ```java
 
-mSetpview0 = (VerticalStepView) mView.findViewById(R.id.step_view0);
+mSetpview0 = (VerticalStepView) findViewById(R.id.step_view0);
 
         List<String> list0 = new ArrayList<>();
         list0.add("接已提交定案，等待系统确认");
