@@ -187,9 +187,13 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
             for(int i = 0; i < mTexts.size(); i++)
             {
                 TextView textView = new TextView(getContext());
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize); //22SP
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
                 textView.setText(mTexts.get(i));
-                textView.setX(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() - 10);//这里的-10是将文字进行调整居中，稍后再动态修改
+                int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
+                textView.measure(spec, spec);
+                // getMeasuredWidth
+                int measuredWidth = textView.getMeasuredWidth();
+                textView.setX(complectedXPosition.get(i) - measuredWidth/2);
                 textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 if(i <= mComplectingPosition)
