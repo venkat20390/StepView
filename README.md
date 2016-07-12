@@ -33,7 +33,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.baoyachi:StepView:1.5'
+	        compile 'com.github.baoyachi:StepView:1.6'
 	}		
 
 
@@ -65,6 +65,7 @@ use code
         list0.add("支付");
         setpview0.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list0)//总步骤
+                .setTextSize(16)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
