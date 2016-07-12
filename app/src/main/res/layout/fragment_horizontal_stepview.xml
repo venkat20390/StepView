@@ -18,7 +18,6 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
 
@@ -29,7 +28,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -39,7 +37,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -49,7 +46,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -59,7 +55,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -69,7 +64,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -79,7 +73,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
         <com.baoyachi.stepview.HorizontalStepView
@@ -89,7 +82,6 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="16dp"
             android:textColor="@android:color/white"
-            android:textSize="14sp"
             />
 
 

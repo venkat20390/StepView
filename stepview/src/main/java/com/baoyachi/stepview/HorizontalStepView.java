@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,6 +29,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     private int mComplectingPosition;
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
+    private int mTextSize = 14;//default textSize
 
     public HorizontalStepView(Context context)
     {
@@ -161,6 +163,21 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
         return this;
     }
 
+    /**
+     * set textSize
+     * @param textSize
+     * @return
+     */
+    public HorizontalStepView setTextSize(int textSize)
+    {
+        if(textSize>0)
+        {
+            mTextSize = textSize;
+        }
+        return this;
+    }
+
+
     @Override
     public void ondrawIndicator()
     {
@@ -170,6 +187,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
             for(int i = 0; i < mTexts.size(); i++)
             {
                 TextView textView = new TextView(getContext());
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize); //22SP
                 textView.setText(mTexts.get(i));
                 textView.setX(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() - 10);//这里的-10是将文字进行调整居中，稍后再动态修改
                 textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));

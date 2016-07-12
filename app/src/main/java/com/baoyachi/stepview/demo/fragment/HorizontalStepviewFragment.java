@@ -51,6 +51,7 @@ public class HorizontalStepviewFragment extends Fragment
         list0.add("支付");
         setpview0.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list0)//总步骤
+                .setTextSize(16)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -68,6 +69,7 @@ public class HorizontalStepviewFragment extends Fragment
         HorizontalStepView setpview1 = (HorizontalStepView) mView.findViewById(R.id.step_view1);
         setpview1.setStepsViewIndicatorComplectingPosition(0)//设置完成的步数
                 .setStepViewTexts(list1)//总步骤
+                .setTextSize(8)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -85,6 +87,7 @@ public class HorizontalStepviewFragment extends Fragment
         HorizontalStepView setpview2 = (HorizontalStepView) mView.findViewById(R.id.step_view2);
         setpview2.setStepsViewIndicatorComplectingPosition(0)//设置完成的步数
                 .setStepViewTexts(list2)//总步骤
+                .setTextSize(9)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -103,6 +106,7 @@ public class HorizontalStepviewFragment extends Fragment
         HorizontalStepView setpview3 = (HorizontalStepView) mView.findViewById(R.id.step_view3);
         setpview3.setStepsViewIndicatorComplectingPosition(1)//设置完成的步数
                 .setStepViewTexts(list3)//总步骤
+                .setTextSize(10)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -122,6 +126,7 @@ public class HorizontalStepviewFragment extends Fragment
         HorizontalStepView setpview4 = (HorizontalStepView) mView.findViewById(R.id.step_view4);
         setpview4.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
                 .setStepViewTexts(list4)//总步骤
+                .setTextSize(11)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -144,6 +149,7 @@ public class HorizontalStepviewFragment extends Fragment
         HorizontalStepView setpview5 = (HorizontalStepView) mView.findViewById(R.id.step_view5);
         setpview5.setStepsViewIndicatorComplectingPosition(3)//设置完成的步数
                 .setStepViewTexts(list5)//总步骤
+                .setTextSize(12)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
@@ -166,6 +172,7 @@ public class HorizontalStepviewFragment extends Fragment
         list6.add("支付");
         setpview6.setStepsViewIndicatorComplectingPosition(4)//设置完成的步数
                 .setStepViewTexts(list6)//总步骤
+                .setTextSize(13)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
