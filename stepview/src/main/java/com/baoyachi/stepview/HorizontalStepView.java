@@ -30,6 +30,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
     private int mTextSize = 14;//default textSize
+    private TextView mTextView;
 
     public HorizontalStepView(Context context)
     {
@@ -186,26 +187,26 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
         {
             for(int i = 0; i < mTexts.size(); i++)
             {
-                TextView textView = new TextView(getContext());
-                textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
-                textView.setText(mTexts.get(i));
+                mTextView = new TextView(getContext());
+                mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
+                mTextView.setText(mTexts.get(i));
                 int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
-                textView.measure(spec, spec);
+                mTextView.measure(spec, spec);
                 // getMeasuredWidth
-                int measuredWidth = textView.getMeasuredWidth();
-                textView.setX(complectedXPosition.get(i) - measuredWidth/2);
-                textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                int measuredWidth = mTextView.getMeasuredWidth();
+                mTextView.setX(complectedXPosition.get(i) - measuredWidth/2);
+                mTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 if(i <= mComplectingPosition)
                 {
-                    textView.setTypeface(null, Typeface.BOLD);
-                    textView.setTextColor(mComplectedTextColor);
+                    mTextView.setTypeface(null, Typeface.BOLD);
+                    mTextView.setTextColor(mComplectedTextColor);
                 } else
                 {
-                    textView.setTextColor(mUnComplectedTextColor);
+                    mTextView.setTextColor(mUnComplectedTextColor);
                 }
 
-                mTextContainer.addView(textView);
+                mTextContainer.addView(mTextView);
             }
         }
     }
