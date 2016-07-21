@@ -157,9 +157,9 @@ public class VerticalStepViewIndicator extends View
     }
 
     @Override
-    protected void onSizeChanged(int w, int h, int oldw, int oldh)
+    protected void onLayout(boolean changed, int left, int top, int right, int bottom)
     {
-        super.onSizeChanged(w, h, oldw, oldh);
+        super.onLayout(changed, left, top, right, bottom);
         mCenterX = getWidth() / 2;
         mLeftY = mCenterX - (mCompletedLineHeight / 2);
         mRightY = mCenterX + (mCompletedLineHeight / 2);
@@ -274,7 +274,7 @@ public class VerticalStepViewIndicator extends View
     public void setStepNum(int stepNum)
     {
         this.mStepNum = stepNum;
-        invalidate();
+        requestLayout();
     }
 
     /**
@@ -295,7 +295,7 @@ public class VerticalStepViewIndicator extends View
     public void setComplectingPosition(int complectingPosition)
     {
         this.mComplectingPosition = complectingPosition;
-        invalidate();
+        requestLayout();
     }
 
     /**

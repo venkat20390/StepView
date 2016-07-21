@@ -194,7 +194,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     public void ondrawIndicator()
     {
         List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
-        if(mTexts != null)
+        if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
         {
             for(int i = 0; i < mTexts.size(); i++)
             {
