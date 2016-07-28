@@ -179,7 +179,6 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
         return this;
     }
 
-
     @Override
     public void ondrawIndicator()
     {

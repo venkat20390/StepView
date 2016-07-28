@@ -55,6 +55,7 @@ public class VerticalStepViewFrowardFragment extends Fragment
         list0.add("感谢你在京东购物，欢迎你下次光临！");
         mSetpview0.setStepsViewIndicatorComplectingPosition(list0.size() - 2)//设置完成的步数
                 .reverseDraw(false)//default is true
+                .setTextSize(14)
                 .setStepViewTexts(list0)//总步骤
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色

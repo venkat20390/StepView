@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,9 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     private int mComplectingPosition;
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
+
+    private int mTextSize = 14;//default textSize
+    private TextView mTextView;
 
 
     public VerticalStepView(Context context)
@@ -181,12 +185,29 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
 
     /**
      * set linePadding  proportion 设置线间距的比例系数
+     *
      * @param linePaddingProportion
      * @return
      */
     public VerticalStepView setLinePaddingProportion(float linePaddingProportion)
     {
         this.mStepsViewIndicator.setIndicatorLinePaddingProportion(linePaddingProportion);
+        return this;
+    }
+
+
+    /**
+     * set textSize
+     *
+     * @param textSize
+     * @return
+     */
+    public VerticalStepView setTextSize(int textSize)
+    {
+        if(textSize > 0)
+        {
+            mTextSize = textSize;
+        }
         return this;
     }
 
@@ -198,21 +219,22 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
         {
             for(int i = 0; i < mTexts.size(); i++)
             {
-                TextView textView = new TextView(getContext());
-                textView.setText(mTexts.get(i));
-                textView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
-                textView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                mTextView = new TextView(getContext());
+                mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
+                mTextView.setText(mTexts.get(i));
+                mTextView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
+                mTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                 if(i <= mComplectingPosition)
                 {
-                    textView.setTypeface(null, Typeface.BOLD);
-                    textView.setTextColor(mComplectedTextColor);
+                    mTextView.setTypeface(null, Typeface.BOLD);
+                    mTextView.setTextColor(mComplectedTextColor);
                 } else
                 {
-                    textView.setTextColor(mUnComplectedTextColor);
+                    mTextView.setTextColor(mUnComplectedTextColor);
                 }
 
-                mTextContainer.addView(textView);
+                mTextContainer.addView(mTextView);
             }
         }
     }
