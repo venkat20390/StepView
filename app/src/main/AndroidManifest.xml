@@ -16,7 +16,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".TestHorizontalStepViewActivity"/>
-        <activity android:name=".TestVerticalStepActivity"/>
     </application>
 
 </manifest>

@@ -70,9 +70,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_test_horizontal_stepview:
                 startActivity(new Intent(this,TestHorizontalStepViewActivity.class));
                 break;
-            case R.id.action_test_vertical_stepview:
-                startActivity(new Intent(this,TestVerticalStepActivity.class));
-                break;
 
 
         }

@@ -34,10 +34,4 @@
         android:title="Test HorizontalStepView"
         app:showAsAction="withText"/>
 
-    <item
-        android:id="@+id/action_test_vertical_stepview"
-        android:orderInCategory="100"
-        android:title="Test VerticalStepView"
-        app:showAsAction="withText"/>
-
 </menu>
