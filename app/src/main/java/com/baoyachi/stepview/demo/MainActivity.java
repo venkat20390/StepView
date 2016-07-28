@@ -1,6 +1,7 @@
 package com.baoyachi.stepview.demo;
 
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -64,6 +65,10 @@ public class MainActivity extends AppCompatActivity
             case R.id.action_vertical_forward:
                 mVerticalStepViewReverseFragment = new VerticalStepViewFrowardFragment();
                 fragmentTransaction.replace(R.id.container, mVerticalStepViewReverseFragment).commit();
+                break;
+
+            case R.id.action_test_horizontal_stepview:
+                startActivity(new Intent(this,TestHorizontalStepViewActivity.class));
                 break;
 
 
