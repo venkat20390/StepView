@@ -11,6 +11,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -24,6 +25,7 @@ import java.util.List;
  */
 public class HorizontalStepsViewIndicator extends View
 {
+    private final String TAG_NAME = this.getClass().getSimpleName();
 
     //定义默认的高度   definition default height
     private int defaultStepIndicatorNum = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
@@ -52,6 +54,7 @@ public class HorizontalStepsViewIndicator extends View
     private Path mPath;
 
     private OnDrawIndicatorListener mOnDrawListener;
+    private int screenWidth;//this screen width
 
     /**
      * 设置监听
@@ -130,23 +133,26 @@ public class HorizontalStepsViewIndicator extends View
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
+        Log.i(TAG_NAME,"onMeasure");
         int width = defaultStepIndicatorNum * 2;
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
-            width = MeasureSpec.getSize(widthMeasureSpec);
+            screenWidth = MeasureSpec.getSize(widthMeasureSpec);
         }
         int height = defaultStepIndicatorNum;
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(heightMeasureSpec))
         {
             height = Math.min(height, MeasureSpec.getSize(heightMeasureSpec));
         }
+        width = (int) (mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding);
         setMeasuredDimension(width, height);
     }
 
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom)
+    protected void onSizeChanged(int w, int h, int oldw, int oldh)
     {
-        super.onLayout(changed, left, top, right, bottom);
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.i(TAG_NAME,"onSizeChanged");
         //获取中间的高度,目的是为了让该view绘制的线和圆在该view垂直居中   get view centerY，keep current stepview center vertical
         mCenterY = 0.5f * getHeight();
         //获取左上方Y的位置，获取该点的意义是为了方便画矩形左上的Y位置
@@ -157,7 +163,7 @@ public class HorizontalStepsViewIndicator extends View
         for(int i = 0; i < mStepNum; i++)
         {
             //先计算全部最左边的padding值（getWidth()-（圆形直径+两圆之间距离）*2）
-            float paddingLeft = (getWidth() - mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding) / 2;
+            float paddingLeft = (screenWidth - mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding) / 2;
             //add to list
             mCircleCenterPointPositionList.add(paddingLeft + mCircleRadius + i * mCircleRadius * 2 + i * mLinePadding);
         }
@@ -175,6 +181,7 @@ public class HorizontalStepsViewIndicator extends View
     protected synchronized void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        Log.i(TAG_NAME,"onDraw");
         if(mOnDrawListener!=null)
         {
             mOnDrawListener.ondrawIndicator();
@@ -257,7 +264,6 @@ public class HorizontalStepsViewIndicator extends View
     public void setComplectingPosition(int complectingPosition)
     {
         this.mComplectingPosition = complectingPosition;
-        requestLayout();
     }
 
     /**
