@@ -152,10 +152,6 @@ public class VerticalStepViewIndicator extends View
         {
             width = Math.min(width, MeasureSpec.getSize(widthMeasureSpec));
         }
-        if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(heightMeasureSpec))
-        {
-            mHeight = MeasureSpec.getSize(heightMeasureSpec);
-        }
         setMeasuredDimension(width, mHeight);
 
     }
