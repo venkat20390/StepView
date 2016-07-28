@@ -20,7 +20,7 @@
        android:clickable="true"
        android:gravity="center"
        android:padding="16dp"
-       android:text="click"
+       android:text="click horizontalStepview"
        android:textAllCaps="true"
        android:textAppearance="@style/TextAppearance.AppCompat.Button"
        android:textColor="@android:color/white"
