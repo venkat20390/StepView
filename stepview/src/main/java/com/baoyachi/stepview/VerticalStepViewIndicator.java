@@ -11,6 +11,7 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 
@@ -24,6 +25,8 @@ import java.util.List;
  */
 public class VerticalStepViewIndicator extends View
 {
+    private final String TAG_NAME = this.getClass().getSimpleName();
+
     //定义默认的高度   definition default height
     private int defaultStepIndicatorNum = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 40, getResources().getDisplayMetrics());
 
@@ -137,6 +140,7 @@ public class VerticalStepViewIndicator extends View
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+        Log.i(TAG_NAME,"onMeasure");
         int width = defaultStepIndicatorNum;
         mHeight = 0;
         if(mStepNum > 0)
@@ -156,10 +160,12 @@ public class VerticalStepViewIndicator extends View
 
     }
 
+
     @Override
-    protected void onLayout(boolean changed, int left, int top, int right, int bottom)
+    protected void onSizeChanged(int w, int h, int oldw, int oldh)
     {
-        super.onLayout(changed, left, top, right, bottom);
+        super.onSizeChanged(w, h, oldw, oldh);
+        Log.i(TAG_NAME,"onSizeChanged");
         mCenterX = getWidth() / 2;
         mLeftY = mCenterX - (mCompletedLineHeight / 2);
         mRightY = mCenterX + (mCompletedLineHeight / 2);
@@ -188,6 +194,7 @@ public class VerticalStepViewIndicator extends View
     protected void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
+        Log.i(TAG_NAME,"onDraw");
         if(mOnDrawListener != null)
         {
             mOnDrawListener.ondrawIndicator();
