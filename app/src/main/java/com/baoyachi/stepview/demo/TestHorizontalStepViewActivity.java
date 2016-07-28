@@ -16,13 +16,13 @@ import java.util.List;
  * <p>
  * 描述：
  */
-public class SecondActivity extends AppCompatActivity
+public class TestHorizontalStepViewActivity extends AppCompatActivity
 {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second);
+        setContentView(R.layout.activity_test_horizontal);
         findViewById(R.id.btn_status).setOnClickListener(new View.OnClickListener()
         {
             @Override
