@@ -17,7 +17,7 @@ import java.util.List;
 
 /**
  * 日期：16/6/24 11:48
- * <p>
+ * <p/>
  * 描述：
  */
 public class VerticalStepView extends LinearLayout implements VerticalStepViewIndicator.OnDrawIndicatorListener
@@ -55,7 +55,6 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
         mStepsViewIndicator = (VerticalStepViewIndicator) rootView.findViewById(R.id.steps_indicator);
         mStepsViewIndicator.setOnDrawListener(this);
         mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);
-        mTextContainer.removeAllViews();
     }
 
     @Override
@@ -214,27 +213,31 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     @Override
     public void ondrawIndicator()
     {
-        List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
-        if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
+        if(mTextContainer != null)
         {
-            for(int i = 0; i < mTexts.size(); i++)
+            mTextContainer.removeAllViews();//clear texts
+            List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
+            if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
             {
-                mTextView = new TextView(getContext());
-                mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
-                mTextView.setText(mTexts.get(i));
-                mTextView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
-                mTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+                for(int i = 0; i < mTexts.size(); i++)
+                {
+                    mTextView = new TextView(getContext());
+                    mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
+                    mTextView.setText(mTexts.get(i));
+                    mTextView.setY(complectedXPosition.get(i) - mStepsViewIndicator.getCircleRadius() / 2);
+                    mTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
 
-                if(i <= mComplectingPosition)
-                {
-                    mTextView.setTypeface(null, Typeface.BOLD);
-                    mTextView.setTextColor(mComplectedTextColor);
-                } else
-                {
-                    mTextView.setTextColor(mUnComplectedTextColor);
+                    if(i <= mComplectingPosition)
+                    {
+                        mTextView.setTypeface(null, Typeface.BOLD);
+                        mTextView.setTextColor(mComplectedTextColor);
+                    } else
+                    {
+                        mTextView.setTextColor(mUnComplectedTextColor);
+                    }
+
+                    mTextContainer.addView(mTextView);
                 }
-
-                mTextContainer.addView(mTextView);
             }
         }
     }
