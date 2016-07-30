@@ -183,7 +183,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     {
         if(mTextContainer != null)
         {
-            mTextContainer.removeAllViews();//clear texts
+            mTextContainer.removeAllViews();//clear ViewGroup
             List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
             if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
             {

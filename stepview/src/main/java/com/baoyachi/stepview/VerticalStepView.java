@@ -215,7 +215,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
     {
         if(mTextContainer != null)
         {
-            mTextContainer.removeAllViews();//clear texts
+            mTextContainer.removeAllViews();//clear ViewGroup
             List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
             if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
             {
