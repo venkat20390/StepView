@@ -34,7 +34,6 @@ Step 2. Add the dependency
 
 	dependencies {
 	        compile 'com.github.baoyachi:StepView:1.8.1'
-	}
 	}		
 
 
