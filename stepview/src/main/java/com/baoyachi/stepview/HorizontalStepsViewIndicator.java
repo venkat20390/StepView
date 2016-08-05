@@ -123,7 +123,7 @@ public class HorizontalStepsViewIndicator extends View
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
         Log.i(TAG_NAME,"onMeasure");
-        int width = defaultStepIndicatorNum * 2;
+        int width = 0;
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
             screenWidth = MeasureSpec.getSize(widthMeasureSpec);
