@@ -122,7 +122,7 @@ public class HorizontalStepsViewIndicator extends View
     @Override
     protected synchronized void onMeasure(int widthMeasureSpec, int heightMeasureSpec)
     {
-        Log.i(TAG_NAME,"onMeasure");
+        Log.i(TAG_NAME, "onMeasure");
         int width = 0;
         if(MeasureSpec.UNSPECIFIED != MeasureSpec.getMode(widthMeasureSpec))
         {
@@ -133,6 +133,7 @@ public class HorizontalStepsViewIndicator extends View
         {
             height = Math.min(height, MeasureSpec.getSize(heightMeasureSpec));
         }
+        //dynamic measure HorizontalStepsViewIndicator width
         width = (int) (mStepNum * mCircleRadius * 2 - (mStepNum - 1) * mLinePadding);
         setMeasuredDimension(width, height);
     }
@@ -141,7 +142,7 @@ public class HorizontalStepsViewIndicator extends View
     protected void onSizeChanged(int w, int h, int oldw, int oldh)
     {
         super.onSizeChanged(w, h, oldw, oldh);
-        Log.i(TAG_NAME,"onSizeChanged");
+        Log.i(TAG_NAME, "onSizeChanged");
         //获取中间的高度,目的是为了让该view绘制的线和圆在该view垂直居中   get view centerY，keep current stepview center vertical
         mCenterY = 0.5f * getHeight();
         //获取左上方Y的位置，获取该点的意义是为了方便画矩形左上的Y位置
@@ -160,7 +161,7 @@ public class HorizontalStepsViewIndicator extends View
         /**
          * set listener
          */
-        if(mOnDrawListener!=null)
+        if(mOnDrawListener != null)
         {
             mOnDrawListener.ondrawIndicator();
         }
@@ -170,8 +171,8 @@ public class HorizontalStepsViewIndicator extends View
     protected synchronized void onDraw(Canvas canvas)
     {
         super.onDraw(canvas);
-        Log.i(TAG_NAME,"onDraw");
-        if(mOnDrawListener!=null)
+        Log.i(TAG_NAME, "onDraw");
+        if(mOnDrawListener != null)
         {
             mOnDrawListener.ondrawIndicator();
         }
