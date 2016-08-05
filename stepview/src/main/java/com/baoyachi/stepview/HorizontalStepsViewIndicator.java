@@ -66,17 +66,6 @@ public class HorizontalStepsViewIndicator extends View
         mOnDrawListener = onDrawListener;
     }
 
-    /**
-     * get圆的半径  get circle radius
-     *
-     * @return
-     */
-    public float getCircleRadius()
-    {
-        return mCircleRadius;
-    }
-
-
     public HorizontalStepsViewIndicator(Context context)
     {
         this(context, null);
