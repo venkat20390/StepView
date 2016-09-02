@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baoyachi.stepview.bean.StepBean;
+
 import java.util.List;
 
 /**
@@ -22,10 +24,9 @@ import java.util.List;
  */
 public class HorizontalStepView extends LinearLayout implements HorizontalStepsViewIndicator.OnDrawIndicatorListener
 {
-
     private RelativeLayout mTextContainer;
     private HorizontalStepsViewIndicator mStepsViewIndicator;
-    private List<String> mTexts;
+    private List<StepBean> mStepBeanList;
     private int mComplectingPosition;
     private int mUnComplectedTextColor = ContextCompat.getColor(getContext(), R.color.uncompleted_text_color);//定义默认未完成文字的颜色;
     private int mComplectedTextColor = ContextCompat.getColor(getContext(), android.R.color.white);//定义默认完成文字的颜色;
@@ -59,28 +60,16 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     /**
      * 设置显示的文字
      *
-     * @param texts
+     * @param stepsBeanList
      * @return
      */
-    public HorizontalStepView setStepViewTexts(List<String> texts)
+    public HorizontalStepView setStepViewTexts(List<StepBean> stepsBeanList)
     {
-        mTexts = texts;
-        mStepsViewIndicator.setStepNum(mTexts.size());
+        mStepBeanList = stepsBeanList;
+        mStepsViewIndicator.setStepNum(mStepBeanList);
         return this;
     }
 
-    /**
-     * 设置正在进行的position
-     *
-     * @param complectingPosition
-     * @return
-     */
-    public HorizontalStepView setStepsViewIndicatorComplectingPosition(int complectingPosition)
-    {
-        mComplectingPosition = complectingPosition;
-        mStepsViewIndicator.setComplectingPosition(complectingPosition);
-        return this;
-    }
 
     /**
      * 设置未完成文字的颜色
@@ -183,15 +172,15 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
     {
         if(mTextContainer != null)
         {
-            mTextContainer.removeAllViews();//clear ViewGroup
+            mTextContainer.removeAllViews();
             List<Float> complectedXPosition = mStepsViewIndicator.getCircleCenterPointPositionList();
-            if(mTexts != null && complectedXPosition != null && complectedXPosition.size() > 0)
+            if(mStepBeanList != null && complectedXPosition != null && complectedXPosition.size() > 0)
             {
-                for(int i = 0; i < mTexts.size(); i++)
+                for(int i = 0; i < mStepBeanList.size(); i++)
                 {
                     mTextView = new TextView(getContext());
                     mTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, mTextSize);
-                    mTextView.setText(mTexts.get(i));
+                    mTextView.setText(mStepBeanList.get(i).getName());
                     int spec = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
                     mTextView.measure(spec, spec);
                     // getMeasuredWidth
@@ -213,4 +202,5 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
             }
         }
     }
+
 }
