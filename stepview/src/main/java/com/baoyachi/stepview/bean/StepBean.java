@@ -33,4 +33,14 @@ public class StepBean
     {
         this.state = state;
     }
+
+    public StepBean()
+    {
+    }
+
+    public StepBean(String name, int state)
+    {
+        this.name = name;
+        this.state = state;
+    }
 }
