@@ -3,16 +3,11 @@ package com.baoyachi.stepview.demo.fragment;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.baoyachi.stepview.HorizontalStepView;
 import com.baoyachi.stepview.demo.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 日期：16/6/24 20:08
@@ -28,18 +23,18 @@ public class HorizontalStepviewFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         mView = View.inflate(container.getContext(), R.layout.fragment_horizontal_stepview, null);
-        showSetpView0();
+       /* showSetpView0();
         showSetpView1();
         showSetpView2();
         showSetpView3();
         showSetpView4();
         showSetpView5();
-        showSetpView6();
+        showSetpView6();*/
         return mView;
     }
 
 
-    private void showSetpView0()
+   /* private void showSetpView0()
     {
         HorizontalStepView setpview0 = (HorizontalStepView) mView.findViewById(R.id.step_view0);
         List<String> list0 = new ArrayList<>();
@@ -180,5 +175,5 @@ public class HorizontalStepviewFragment extends Fragment
                 .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(getActivity(), R.drawable.complted))//设置StepsViewIndicator CompleteIcon
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getActivity(), R.drawable.default_icon))//设置StepsViewIndicator DefaultIcon
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getActivity(), R.drawable.attention));//设置StepsViewIndicator AttentionIcon
-    }
+    }*/
 }

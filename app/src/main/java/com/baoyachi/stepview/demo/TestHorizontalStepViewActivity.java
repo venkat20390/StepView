@@ -2,14 +2,7 @@ package com.baoyachi.stepview.demo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-
-import com.baoyachi.stepview.HorizontalStepView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * 日期：16/7/26 15:06
@@ -23,7 +16,7 @@ public class TestHorizontalStepViewActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_horizontal);
-        findViewById(R.id.btn_status).setOnClickListener(new View.OnClickListener()
+        /*findViewById(R.id.btn_status).setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -47,7 +40,7 @@ public class TestHorizontalStepViewActivity extends AppCompatActivity
                         .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(getBaseContext(), R.drawable.default_icon))//设置StepsViewIndicator DefaultIcon
                         .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(getBaseContext(), R.drawable.attention));//设置StepsViewIndicator AttentionIcon
             }
-        });
+        });*/
 
 
     }
