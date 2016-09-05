@@ -30,8 +30,6 @@ public class TestHorizontalStepViewActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 HorizontalStepView stepView = (HorizontalStepView) findViewById(R.id.stepview);
-
-
                 //-----------------------------this data is example and you can also get data from server-----------------------------
                 List<StepBean> stepsBeanList = new ArrayList<StepBean>();
                 StepBean stepBean0 = new StepBean("接单",1);
