@@ -33,7 +33,7 @@ Add it in your root build.gradle at the end of repositories:
 Step 2. Add the dependency
 
 	dependencies {
-	        compile 'com.github.baoyachi:StepView:1.8.1'
+	        compile 'com.github.baoyachi:StepView:1.9'
 	}		
 
 
@@ -44,7 +44,7 @@ in xml
 
 ```java
 	<com.baoyachi.stepview.HorizontalStepView
-            android:id="@+id/step_view0"
+            android:id="@+id/step_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -53,17 +53,23 @@ in xml
 use code
 
 ```java
- HorizontalStepView setpview0 = (HorizontalStepView) findViewById(R.id.step_view0);
-        List<String> list0 = new ArrayList<>();
-        list0.add("接单");
-        list0.add("打包");
-        list0.add("出发");
-        list0.add("送单");
-        list0.add("完成");
-        list0.add("支付");
-        setpview0.setStepsViewIndicatorComplectingPosition(2)//设置完成的步数
-                .setStepViewTexts(list0)//总步骤
-                .setTextSize(16)//set textSize
+HorizontalStepView setpview5 = (HorizontalStepView) mView.findViewById(R.id.step_view5);
+        List<StepBean> stepsBeanList = new ArrayList<>();
+        StepBean stepBean0 = new StepBean("接单",1);
+        StepBean stepBean1 = new StepBean("打包",1);
+        StepBean stepBean2 = new StepBean("出发",1);
+        StepBean stepBean3 = new StepBean("送单",0);
+        StepBean stepBean4 = new StepBean("完成",-1);
+        stepsBeanList.add(stepBean0);
+        stepsBeanList.add(stepBean1);
+        stepsBeanList.add(stepBean2);
+        stepsBeanList.add(stepBean3);
+        stepsBeanList.add(stepBean4);
+
+
+        setpview5
+                .setStepViewTexts(stepsBeanList)//总步骤
+                .setTextSize(12)//set textSize
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getActivity(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
                 .setStepViewComplectedTextColor(ContextCompat.getColor(getActivity(), android.R.color.white))//设置StepsView text完成线的颜色
