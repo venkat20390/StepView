@@ -209,7 +209,7 @@ public class HorizontalStepviewFragment extends Fragment
         StepBean stepBean2 = new StepBean("出发",1);
         StepBean stepBean3 = new StepBean("送单",1);
         StepBean stepBean4 = new StepBean("完成",1);
-        StepBean stepBean5 = new StepBean("支付",0);
+        StepBean stepBean5 = new StepBean("支付",1);
         stepsBeanList.add(stepBean0);
         stepsBeanList.add(stepBean1);
         stepsBeanList.add(stepBean2);
