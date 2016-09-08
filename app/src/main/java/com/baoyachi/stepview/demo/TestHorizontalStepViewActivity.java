@@ -31,7 +31,7 @@ public class TestHorizontalStepViewActivity extends AppCompatActivity
             {
                 HorizontalStepView stepView = (HorizontalStepView) findViewById(R.id.stepview);
                 //-----------------------------this data is example and you can also get data from server-----------------------------
-                List<StepBean> stepsBeanList = new ArrayList<StepBean>();
+                List<StepBean> stepsBeanList = new ArrayList<>();
                 StepBean stepBean0 = new StepBean("接单",1);
                 StepBean stepBean1 = new StepBean("打包",1);
                 StepBean stepBean2 = new StepBean("出发",0);
@@ -46,7 +46,7 @@ public class TestHorizontalStepViewActivity extends AppCompatActivity
                 stepsBeanList.add(stepBean5);
                 //-----------------------------this data is example and you can also get data from server-----------------------------
 
-                stepView.setStepViewTexts(stepsBeanList)//总步骤
+                stepView.setStepViewTexts(stepsBeanList)
                         .setTextSize(16)//set textSize
                         .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(getBaseContext(), android.R.color.white))//设置StepsViewIndicator完成线的颜色
                         .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(getBaseContext(), R.color.uncompleted_text_color))//设置StepsViewIndicator未完成线的颜色
