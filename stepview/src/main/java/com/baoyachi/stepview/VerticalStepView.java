@@ -51,7 +51,7 @@ public class VerticalStepView extends LinearLayout implements VerticalStepViewIn
 
     private void init()
     {
-        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.widget_vertical_stepsview, this);
+        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.vertical_step_view, this);
         mStepsViewIndicator = (VerticalStepViewIndicator) rootView.findViewById(R.id.steps_indicator);
         mStepsViewIndicator.setOnDrawListener(this);
         mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);

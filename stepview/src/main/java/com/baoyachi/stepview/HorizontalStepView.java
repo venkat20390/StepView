@@ -51,7 +51,7 @@ public class HorizontalStepView extends LinearLayout implements HorizontalStepsV
 
     private void init()
     {
-        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.widget_horizontal_stepsview, this);
+        View rootView = LayoutInflater.from(getContext()).inflate(R.layout.horizontal_step_view, this);
         mStepsViewIndicator = (HorizontalStepsViewIndicator) rootView.findViewById(R.id.steps_indicator);
         mStepsViewIndicator.setOnDrawListener(this);
         mTextContainer = (RelativeLayout) rootView.findViewById(R.id.rl_text_container);
