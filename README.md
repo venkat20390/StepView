@@ -44,7 +44,7 @@ Default (forward order)
 2. Add StepView as a dependency in your module build.gradle
 	```
 	dependencies {
-	  implementation 'com.github.vinaygopinath:StepView:2.0'
+	  implementation 'com.github.vinaygopinath:StepView:2.0.1'
 	}
 	```
 
