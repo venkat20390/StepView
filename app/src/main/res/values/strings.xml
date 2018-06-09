@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">StepView</string>
+    <string name="app_name">StepView Demo</string>
     <string name="basic_horizontal_title">StepView Demo</string>
     <string name="basic_horizontal_description">Use the side menu to explore the behaviour and customization of HorizontalStepView and VerticalStepView</string>
     <string name="basic_vertical_forward_description">To display steps in order, call setReverse(false) on the VerticalStepView. Refer BasicVerticalForwardFragment</string>
