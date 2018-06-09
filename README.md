@@ -6,17 +6,22 @@ displays the name of the step and an icon associated with the state of the step 
 ## Screenshots
 
 ### HorizontalStepView
+
 Default
+
 <img width="500"  src="images/basic-horizontal-stepview.png" alt="Default Horizontal StepView"></img>
 
 Customized
+
 <img width="500"  src="images/custom-horizontal-stepview.png" alt="Customized Horizontal StepView"></img>
 
 ### VerticalStepView
 Default (reverse order)
+
 <img height="500" src="images/basic-reverse-vertical-stepview.png">
 
 Default (forward order)
+
 <img height="500" src="images/basic-forward-vertical-stepview.png">
 
 ## Getting started
