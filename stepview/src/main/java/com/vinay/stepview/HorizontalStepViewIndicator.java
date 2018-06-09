@@ -108,17 +108,20 @@ class HorizontalStepViewIndicator extends StepViewIndicator {
 
       Step step = mStepList.get(i);
 
-      if (step.getState() == Step.State.NOT_COMPLETED) {
-        mNotCompletedStepIcon.setBounds(mRect);
-        mNotCompletedStepIcon.draw(canvas);
-      } else if (step.getState() == Step.State.CURRENT) {
-        mCompletedLinePaint.setColor(Color.WHITE);
-        canvas.drawCircle(stepXPosition, mCenterY, mCircleRadius * 1.1f, mCompletedLinePaint);
-        mCurrentStepIcon.setBounds(mRect);
-        mCurrentStepIcon.draw(canvas);
-      } else if (step.getState() == Step.State.COMPLETED) {
-        mCompletedStepIcon.setBounds(mRect);
-        mCompletedStepIcon.draw(canvas);
+      switch (step.getState()) {
+        case NOT_COMPLETED:
+          mNotCompletedStepIcon.setBounds(mRect);
+          mNotCompletedStepIcon.draw(canvas);
+          break;
+        case CURRENT:
+          mCompletedLinePaint.setColor(Color.WHITE);
+          mCurrentStepIcon.setBounds(mRect);
+          mCurrentStepIcon.draw(canvas);
+          break;
+        case COMPLETED:
+          mCompletedStepIcon.setBounds(mRect);
+          mCompletedStepIcon.draw(canvas);
+          break;
       }
     }
   }

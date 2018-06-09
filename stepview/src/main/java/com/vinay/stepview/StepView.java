@@ -6,7 +6,6 @@ import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,16 +24,16 @@ import java.util.List;
  */
 public abstract class StepView extends LinearLayout implements StepViewIndicator.onUpdateIndicatorListener {
 
-  protected int mNotCompletedStepTextColor = Color.WHITE;
-  protected int mCompletedStepTextColor = Color.WHITE;
-  protected int mCurrentStepTextColor = Color.WHITE;
-  protected int mTextSize = 14;
+  int mNotCompletedStepTextColor = Color.WHITE;
+  int mCompletedStepTextColor = Color.WHITE;
+  int mCurrentStepTextColor = Color.WHITE;
+  int mTextSize = 14;
 
-  protected StepViewIndicator mStepViewIndicator;
-  protected RelativeLayout mTextContainer;
+  StepViewIndicator mStepViewIndicator;
+  RelativeLayout mTextContainer;
 
-  protected List<Step> mStepList;
-  protected List<TextView> mTextViewList = new ArrayList<>();
+  List<Step> mStepList;
+  final List<TextView> mTextViewList = new ArrayList<>();
 
   public StepView(Context context) {
     this(context, null);
@@ -363,7 +362,7 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
    * @return The current {@link StepView} instance for chaining
    */
   public StepView setLineLengthPx(float lineLengthPx) {
-    mStepViewIndicator.setLineLength(lineLengthPx);
+    mStepViewIndicator.setLineLengthPx(lineLengthPx);
 
     return this;
   }
@@ -376,7 +375,7 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
    * @return The current {@link StepView} instance, for chaining
    */
   public StepView setLineLength(float lineLengthDp) {
-    mStepViewIndicator.setLineLength(convertDpToPx(lineLengthDp));
+    mStepViewIndicator.setLineLength(lineLengthDp);
 
     return this;
   }
@@ -393,26 +392,24 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
 
   /**
    * Sets the radius, in pixels, of the drawable circle
-   * <p>The default circle radius is approximately the pixel equivalent of 11.2 dp (0.28 * 40dp)</p>
    *
    * @param circleRadiusPx - The radius, in pixels, of the drawable circle
    * @return The current {@link StepView} instance, for chaining
    */
   public StepView setCircleRadiusPx(float circleRadiusPx) {
-    mStepViewIndicator.setCircleRadius(circleRadiusPx);
+    mStepViewIndicator.setCircleRadiusPx(circleRadiusPx);
 
     return this;
   }
 
   /**
    * Sets the radius, in dp, of the drawable circle
-   * <p>The default circle radius is approximately the pixel equivalent of 11.2 dp (0.28 * 40dp)</p>
    *
    * @param circleRadiusDp - The radius, in dp, of the drawable circle
    * @return The current {@link StepView} instance, for chaining
    */
   public StepView setCircleRadius(float circleRadiusDp) {
-    mStepViewIndicator.setCircleRadius(convertDpToPx(circleRadiusDp));
+    mStepViewIndicator.setCircleRadius(circleRadiusDp);
 
     return this;
   }
@@ -438,14 +435,16 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
   }
 
   /**
-   * Helper method to convert dp to px
-   *
-   * @param numDp - Value, in density-independent pixels
-   * @return The equivalent pixel value
+   * Updates the {@link TextView}s that display the {@link Step} text.
+   * <p>
+   * This must be implemented by derived classes to control the behaviour and direction of the
+   * TextViews.
+   * <p>
+   * This method is invoked when the {@link StepViewIndicator} has redrawn itself as a result of
+   * a change in the number of Steps, the size of the View, or manual invalidation
    */
-  protected float convertDpToPx(float numDp) {
-    return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, numDp, getResources().getDisplayMetrics());
-  }
+  abstract protected void updateView();
+
 
   /**
    * Ensures that the number of cached {@link TextView}s is equal to the number of steps
@@ -455,7 +454,7 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
    * <li>When the number of TextViews is greater, it removes the extraneous TextViews</li>
    * </ol>
    */
-  protected void ensureTextViewCount() {
+  private void ensureTextViewCount() {
     int stepCount = mStepList == null ? 0 : mStepList.size();
     int textViewCount = mTextViewList.size();
     int delta = textViewCount - stepCount;
@@ -473,15 +472,4 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
       mTextViewList.removeAll(mTextViewList.subList(stepCount, textViewCount));
     }
   }
-
-  /**
-   * Updates the {@link TextView}s that display the {@link Step} text.
-   * <p>
-   * This must be implemented by derived classes to control the behaviour and direction of the
-   * TextViews.
-   * <p>
-   * This method is invoked when the {@link StepViewIndicator} has redrawn itself as a result of
-   * a change in the number of Steps, the size of the View, or manual invalidation
-   */
-  abstract protected void updateView();
 }

@@ -17,7 +17,18 @@ public class Step {
    * </ul>
    */
   public enum State {
-    CURRENT, NOT_COMPLETED, COMPLETED
+    /**
+     * The currently active step. Represents the step that is visible to the user.
+     */
+    CURRENT,
+    /**
+     * A step that has not been completed.
+     */
+    NOT_COMPLETED,
+    /**
+     * A step that has been completed.
+     */
+    COMPLETED
   }
 
   private String name;

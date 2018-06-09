@@ -9,8 +9,9 @@ import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
+import android.support.v7.content.res.AppCompatResources;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -26,36 +27,36 @@ abstract class StepViewIndicator extends View {
     void onIndicatorUpdated();
   }
 
-  protected final int DEFAULT_STEP_INDICATOR_DIMENSION = (int) convertDpToPx(40);
+  final int DEFAULT_STEP_INDICATOR_DIMENSION = (int) convertDpToPx(40);
 
-  protected float mCompletedLineHeight; // completed line height
-  protected float mCircleRadius; // Step circle radius
+  float mCompletedLineHeight; // completed line height
+  float mCircleRadius; // Step circle radius
 
-  protected Drawable mCompletedStepIcon; // Drawable/icon used for a completed step
-  protected Drawable mCurrentStepIcon; // Drawable/icon used for the current step
-  protected Drawable mNotCompletedStepIcon; // Drawable/icon used for a not completed (default) step
+  Drawable mCompletedStepIcon; // Drawable/icon used for a completed step
+  Drawable mCurrentStepIcon; // Drawable/icon used for the current step
+  Drawable mNotCompletedStepIcon; // Drawable/icon used for a not completed (default) step
 
-  protected Paint mNotCompletedLinePaint; // Style of line leading to a not-completed step
-  protected Paint mCompletedLinePaint; // Style of line leading to a completed step
+  Paint mNotCompletedLinePaint; // Style of line leading to a not-completed step
+  Paint mCompletedLinePaint; // Style of line leading to a completed step
 
-  protected int mNotCompletedLineColor = Color.WHITE; // Default color of a not-completed line
-  protected int mCompletedLineColor = Color.WHITE; // Default color of a completed line
-  protected float mLineLength; // Default spacing between circles of two steps
+  int mNotCompletedLineColor = Color.WHITE; // Default color of a not-completed line
+  int mCompletedLineColor = Color.WHITE; // Default color of a completed line
+  float mLineLength; // Default spacing between circles of two steps
 
-  protected List<Float> mCircleCenterPointPositionList; // List of center points of all circles
-  protected List<Step> mStepList; // List of steps
+  List<Float> mCircleCenterPointPositionList; // List of center points of all circles
+  List<Step> mStepList; // List of steps
 
-  protected Path mPath; // Path of lines leading to not-completed steps
-  protected final Rect mRect = new Rect(); // The bounding rectangle of the Step icon/drawables
+  Path mPath; // Path of lines leading to not-completed steps
+  final Rect mRect = new Rect(); // The bounding rectangle of the Step icon/drawables
 
   /**
    * Determines whether the StepView should be displayed in reverse order.
    * Defaults to true.
    * Note: Only applicable for {@link VerticalStepViewIndicator}
    */
-  protected boolean mIsReverseDraw = true;
+  boolean mIsReverseDraw = true;
 
-  protected onUpdateIndicatorListener mUpdateIndicatorListener;
+  onUpdateIndicatorListener mUpdateIndicatorListener;
 
   public StepViewIndicator(Context context) {
     this(context, null);
@@ -169,6 +170,8 @@ abstract class StepViewIndicator extends View {
    * @param circleRadiusDp Circle radius, in density-independent pixels (dp) (float)
    */
   public void setCircleRadius(float circleRadiusDp) {
+    Log.d("StepViewIndicator", "setCircleRadius called with " + circleRadiusDp);
+    Log.d("StepViewIndicator", "convertDpToPx = " + convertDpToPx(circleRadiusDp));
     this.mCircleRadius = convertDpToPx(circleRadiusDp);
   }
 
@@ -220,17 +223,17 @@ abstract class StepViewIndicator extends View {
   /**
    * Sets a listener to be notified when the StepViewIndicator has redrawn itself
    *
-   * @param updateIndicatorListener
+   * @param updateIndicatorListener OnUpdateIndicatorListener that will be notified after StepViewIndicator redraw
    */
   public void setOnUpdateIndicatorListener(@NonNull onUpdateIndicatorListener updateIndicatorListener) {
     mUpdateIndicatorListener = updateIndicatorListener;
   }
 
   /**
-   * Sets whether the StepViewIndicator and StepView should be displayed in reverse order
+   * Sets whether the StepViewIndicator and StepView should be displayed in reverse order.
+   * This defaults to <code>true</code>
    *
    * @param isReverseDraw - Display the Steps in reverse order (boolean)
-   * @default true
    */
   public void setReverse(boolean isReverseDraw) {
     this.mIsReverseDraw = isReverseDraw;
@@ -260,7 +263,7 @@ abstract class StepViewIndicator extends View {
    * @return {@link List} of center point coordinates
    */
   @NonNull
-  protected List<Float> getCircleCenterPointPositionList() {
+  List<Float> getCircleCenterPointPositionList() {
     return mCircleCenterPointPositionList;
   }
 
@@ -269,7 +272,7 @@ abstract class StepViewIndicator extends View {
    *
    * @return Number of steps, or zero
    */
-  protected int getNumOfSteps() {
+  int getNumOfSteps() {
     return mStepList == null ? 0 : mStepList.size();
   }
 
@@ -279,7 +282,10 @@ abstract class StepViewIndicator extends View {
    * @param numDp Value, in dp
    * @return Value in px
    */
-  protected float convertDpToPx(float numDp) {
+  private float convertDpToPx(float numDp) {
+    Log.d("SVI", "convertDpToPx called with " + numDp);
+    DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+    Log.d("SVI", String.format("SVI displayMetrics: h: %d, w: %d. Density: %f", displayMetrics.heightPixels, displayMetrics.widthPixels, displayMetrics.density));
     return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, numDp, getResources().getDisplayMetrics());
   }
 
@@ -304,15 +310,12 @@ abstract class StepViewIndicator extends View {
     mNotCompletedLinePaint.setPathEffect(mEffects);
     mCompletedLinePaint.setStyle(Paint.Style.FILL);
 
-    //已经完成线的宽高 set mCompletedLineHeight
     mCompletedLineHeight = 0.05f * DEFAULT_STEP_INDICATOR_DIMENSION;
-    //圆的半径  set mCircleRadius
     mCircleRadius = 0.28f * DEFAULT_STEP_INDICATOR_DIMENSION;
-    //线与线之间的间距    set mLineLength
     mLineLength = 0.85f * DEFAULT_STEP_INDICATOR_DIMENSION;
 
-    mCompletedStepIcon = ContextCompat.getDrawable(getContext(), R.drawable.completed);//已经完成的icon
-    mCurrentStepIcon = ContextCompat.getDrawable(getContext(), R.drawable.attention);//正在进行的icon
-    mNotCompletedStepIcon = ContextCompat.getDrawable(getContext(), R.drawable.default_icon);//未完成的icon
+    mCompletedStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_completed);
+    mCurrentStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_current);
+    mNotCompletedStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_not_completed);
   }
 }

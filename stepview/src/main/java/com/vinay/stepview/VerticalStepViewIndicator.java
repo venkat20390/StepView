@@ -134,7 +134,6 @@ class VerticalStepViewIndicator extends StepViewIndicator {
           break;
         case CURRENT:
           mCompletedLinePaint.setColor(Color.WHITE);
-          canvas.drawCircle(mCenterX, stepXPosition, mCircleRadius * 1.1f, mCompletedLinePaint);
           mCurrentStepIcon.setBounds(mRect);
           mCurrentStepIcon.draw(canvas);
           break;
