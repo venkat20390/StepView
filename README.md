@@ -3,6 +3,9 @@
 A custom View for a step-by-step process (order checkout, app first launch, intro, timeline visualization). The StepView
 displays the name of the step and an icon associated with the state of the step (completed, currently active, not completed).
 
+## Demo
+StepView Demo app is available on [Google Play Store](https://play.google.com/store/apps/details?id=com.vinay.stepview.demo). APKs are also available under [releases](https://github.com/vinaygopinath/StepView/releases).
+
 ## Screenshots
 
 ### HorizontalStepView
