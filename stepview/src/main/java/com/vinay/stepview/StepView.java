@@ -366,6 +366,26 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
   }
 
   /**
+   * Returns the Drawable used for incomplete steps.
+   *
+   * @return {@link Drawable} completed step icon
+   */
+  public Drawable getIncompleteStepIcon() {
+    return mStepViewIndicator.getInCompleteStepIcon();
+  }
+
+  /**
+   * Sets the drawable used for incomplete steps.
+   *
+   * @param incompleteStepIcon - {@link Drawable} to be used for completed steps
+   * @return The current {@link StepView} instance for chaining
+   */
+  public StepView setIncompleteStepIcon(@NonNull Drawable incompleteStepIcon) {
+    mStepViewIndicator.setIncompleteStepIcon(incompleteStepIcon);
+    return this;
+  }
+
+  /**
    * Returns the length of the line between two steps in pixels
    * <p>
    * The default value is the pixel equivalent of 34dp (0.85 * 40dp)

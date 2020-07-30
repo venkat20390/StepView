@@ -118,7 +118,7 @@ abstract class StepViewIndicator extends View {
    * @return {@link Drawable}
    */
   @NonNull
-  public Drawable getInCompletedStepIcon() {
+  public Drawable getInCompleteStepIcon() {
     return mIncompleteStepIcon;
   }
 
@@ -127,7 +127,7 @@ abstract class StepViewIndicator extends View {
    *
    * @param inCompletedStepIcon {@link Drawable}
    */
-  public void setIncompletedStepIcon(@NonNull Drawable inCompletedStepIcon) {
+  public void setIncompleteStepIcon(@NonNull Drawable inCompletedStepIcon) {
     mIncompleteStepIcon = inCompletedStepIcon;
   }
 
