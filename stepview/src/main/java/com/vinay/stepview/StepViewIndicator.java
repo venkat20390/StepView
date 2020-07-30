@@ -243,6 +243,24 @@ abstract class StepViewIndicator extends View {
   }
 
   /**
+   * Returns the color used for incomplete lines
+   *
+   * @return Completed line color
+   */
+  public int getIncompleteLineColor() {
+    return mIncompleteLineColor;
+  }
+
+  /**
+   * Sets the color used for completed lines
+   *
+   * @param incompleteLineColor (int) - Completed line color
+   */
+  public void setIncompleteLineColor(int incompleteLineColor) {
+    mIncompleteLineColor = incompleteLineColor;
+  }
+
+  /**
    * Sets a listener to be notified when the StepViewIndicator has redrawn itself
    *
    * @param updateIndicatorListener OnUpdateIndicatorListener that will be notified after StepViewIndicator redraw

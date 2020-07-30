@@ -84,6 +84,7 @@ class HorizontalStepViewIndicator extends StepViewIndicator {
     }
     mNotCompletedLinePaint.setColor(mNotCompletedLineColor);
     mCompletedLinePaint.setColor(mCompletedLineColor);
+    mIncompleteLinePaint.setColor(mIncompleteLineColor);
 
     // Draw line from step circle to the next, customizing the line styling based on the step state
     for (int i = 0; i < mCircleCenterPointPositionList.size() - 1; i++) {

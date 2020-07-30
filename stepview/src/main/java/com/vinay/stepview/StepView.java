@@ -305,6 +305,28 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
   }
 
   /**
+   * Returns the color of lines leading to a incomplete step
+   * <p>The default completed line color is {@link Color#WHITE}</p>
+   *
+   * @return The line color integer
+   */
+  public int getIncompleteLineColor() {
+    return mStepViewIndicator.getIncompleteLineColor();
+  }
+
+  /**
+   * Sets the color of the line leading to a completed step
+   * <p>The default completed line color is {@link Color#WHITE}</p>
+   *
+   * @param incompleteLineColor - the integer color of the line leading to a completed step
+   * @return The current {@link StepView} instance for chaining
+   */
+  public StepView setIncompleteLineColor(int incompleteLineColor) {
+    mStepViewIndicator.setIncompleteLineColor(incompleteLineColor);
+    return this;
+  }
+
+  /**
    * Returns the Drawable used for not-completed steps.
    *
    * @return {@link Drawable} Not-completed step icon
