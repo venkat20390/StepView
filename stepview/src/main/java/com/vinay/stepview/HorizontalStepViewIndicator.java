@@ -94,6 +94,8 @@ class HorizontalStepViewIndicator extends StepViewIndicator {
 
       if (mStepList.get(i + 1).getState() == Step.State.COMPLETED) {
         canvas.drawRect(stepXPosition + mCircleRadius - 10, mLeftY, nextStepXPosition - mCircleRadius + 10, mRightY, mCompletedLinePaint);
+      } else if(mStepList.get(i + 1).getState() == Step.State.INCOMPLETE){
+        canvas.drawRect(stepXPosition + mCircleRadius - 10, mLeftY, nextStepXPosition - mCircleRadius + 10, mRightY, mIncompleteLinePaint);
       } else {
         mPath.moveTo(stepXPosition + mCircleRadius, mCenterY);
         mPath.lineTo(nextStepXPosition - mCircleRadius, mCenterY);
@@ -109,6 +111,10 @@ class HorizontalStepViewIndicator extends StepViewIndicator {
       Step step = mStepList.get(i);
 
       switch (step.getState()) {
+        case INCOMPLETE:
+          mIncompleteStepIcon.setBounds(mRect);
+          mIncompleteStepIcon.draw(canvas);
+          break;
         case NOT_COMPLETED:
           mNotCompletedStepIcon.setBounds(mRect);
           mNotCompletedStepIcon.draw(canvas);

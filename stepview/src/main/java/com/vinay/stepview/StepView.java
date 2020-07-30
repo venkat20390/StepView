@@ -27,6 +27,7 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
   int mNotCompletedStepTextColor = Color.WHITE;
   int mCompletedStepTextColor = Color.WHITE;
   int mCurrentStepTextColor = Color.WHITE;
+  int mIncompleteStepTextColor = Color.WHITE;
   int mTextSize = 14;
 
   StepViewIndicator mStepViewIndicator;
@@ -231,6 +232,29 @@ public abstract class StepView extends LinearLayout implements StepViewIndicator
    */
   public StepView setCurrentStepTextColor(int currentStepTextColor) {
     this.mCurrentStepTextColor = currentStepTextColor;
+
+    return this;
+  }
+
+  /**
+   * Returns the text color used for the current (incomplete) step
+   * <p>The default current step text color is {@link Color#WHITE}</p>
+   *
+   * @return The text color integer used for the current (incomplete) step
+   */
+  public int getIncompleteStepTextColor() {
+    return mIncompleteStepTextColor;
+  }
+
+  /**
+   * Sets the text color used for the incomplete step
+   * <p>The default current step text color is {@link Color#WHITE}</p>
+   *
+   * @param inCompleteStepTextColor - current step text color (integer)
+   * @return The current {@link StepView} instance for chaining
+   */
+  public StepView setIncompleteStepTextColor(int inCompleteStepTextColor) {
+    this.mIncompleteStepTextColor = inCompleteStepTextColor;
 
     return this;
   }

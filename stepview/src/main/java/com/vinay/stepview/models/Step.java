@@ -28,7 +28,12 @@ public class Step {
     /**
      * A step that has been completed.
      */
-    COMPLETED
+    COMPLETED,
+    /**
+     * A step that has been incomplete.
+     */
+    INCOMPLETE
+
   }
 
   private String name;

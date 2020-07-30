@@ -42,8 +42,8 @@ public class BasicHorizontalFragment extends Fragment {
     List<Step> stepList = new ArrayList<>();
     stepList.add(new Step("Lorem", Step.State.COMPLETED));
     stepList.add(new Step("Ipsum", Step.State.COMPLETED));
-    stepList.add(new Step("Dolor", Step.State.CURRENT));
-    stepList.add(new Step("Sit"));
+    stepList.add(new Step("Dolor", Step.State.INCOMPLETE));
+    stepList.add(new Step("Sit",Step.State.CURRENT));
     stepList.add(new Step("Amet"));
 
     mHorizontalStepView.setSteps(stepList);

@@ -64,6 +64,10 @@ public class HorizontalStepView extends StepView {
           textView.setTypeface(null, Typeface.NORMAL);
           textView.setTextColor(mNotCompletedStepTextColor);
           break;
+        case INCOMPLETE:
+          textView.setTypeface(null, Typeface.NORMAL);
+          textView.setTextColor(mIncompleteStepTextColor);
+          break;
       }
     }
     mTextContainer.requestLayout();

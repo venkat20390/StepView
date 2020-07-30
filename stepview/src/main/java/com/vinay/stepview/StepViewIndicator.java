@@ -35,12 +35,15 @@ abstract class StepViewIndicator extends View {
   Drawable mCompletedStepIcon; // Drawable/icon used for a completed step
   Drawable mCurrentStepIcon; // Drawable/icon used for the current step
   Drawable mNotCompletedStepIcon; // Drawable/icon used for a not completed (default) step
+  Drawable mIncompleteStepIcon; // Drawable/icon used for a incomplete (default) step
 
   Paint mNotCompletedLinePaint; // Style of line leading to a not-completed step
   Paint mCompletedLinePaint; // Style of line leading to a completed step
+  Paint mIncompleteLinePaint; // Style of line leading to a incomplete step
 
   int mNotCompletedLineColor = Color.WHITE; // Default color of a not-completed line
   int mCompletedLineColor = Color.WHITE; // Default color of a completed line
+  int mIncompleteLineColor = Color.WHITE; // Default color of a incomplete line
   float mLineLength; // Default spacing between circles of two steps
 
   List<Float> mCircleCenterPointPositionList; // List of center points of all circles
@@ -107,6 +110,25 @@ abstract class StepViewIndicator extends View {
    */
   public void setNotCompletedStepIcon(@NonNull Drawable notCompletedStepIcon) {
     mNotCompletedStepIcon = notCompletedStepIcon;
+  }
+
+  /**
+   * Returns the drawable used for steps that are incomplete
+   *
+   * @return {@link Drawable}
+   */
+  @NonNull
+  public Drawable getInCompletedStepIcon() {
+    return mIncompleteStepIcon;
+  }
+
+  /**
+   * Sets the drawable used for steps that are  incomplete
+   *
+   * @param inCompletedStepIcon {@link Drawable}
+   */
+  public void setIncompletedStepIcon(@NonNull Drawable inCompletedStepIcon) {
+    mIncompleteStepIcon = inCompletedStepIcon;
   }
 
   /**
@@ -297,6 +319,8 @@ abstract class StepViewIndicator extends View {
 
     mNotCompletedLinePaint = new Paint();
     mCompletedLinePaint = new Paint();
+    mIncompleteLinePaint = new Paint();
+
     mNotCompletedLinePaint.setAntiAlias(true);
     mNotCompletedLinePaint.setColor(mNotCompletedLineColor);
     mNotCompletedLinePaint.setStyle(Paint.Style.STROKE);
@@ -307,8 +331,14 @@ abstract class StepViewIndicator extends View {
     mCompletedLinePaint.setStyle(Paint.Style.STROKE);
     mCompletedLinePaint.setStrokeWidth(2);
 
+    mIncompleteLinePaint.setAntiAlias(true);
+    mIncompleteLinePaint.setColor(mIncompleteLineColor);
+    mIncompleteLinePaint.setStyle(Paint.Style.STROKE);
+    mIncompleteLinePaint.setStrokeWidth(2);
+
     mNotCompletedLinePaint.setPathEffect(mEffects);
     mCompletedLinePaint.setStyle(Paint.Style.FILL);
+    mIncompleteLinePaint.setStyle(Paint.Style.FILL);
 
     mCompletedLineHeight = 0.05f * DEFAULT_STEP_INDICATOR_DIMENSION;
     mCircleRadius = 0.28f * DEFAULT_STEP_INDICATOR_DIMENSION;
@@ -317,5 +347,6 @@ abstract class StepViewIndicator extends View {
     mCompletedStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_completed);
     mCurrentStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_current);
     mNotCompletedStepIcon = AppCompatResources.getDrawable(getContext(), R.drawable.ic_not_completed);
+    mIncompleteStepIcon = AppCompatResources.getDrawable(getContext(),R.drawable.ic_incomplete);
   }
 }
